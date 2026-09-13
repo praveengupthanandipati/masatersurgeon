@@ -1,0 +1,258 @@
+@import "mixins";
+@import "variables";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css");
+
+body {
+  @include siteMain;
+  overflow-x: hidden;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+}
+
+// ==========================================
+// PAGE LOADER
+// ==========================================
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: map-get($colors, white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.page-loader-logo {
+  height: 42px;
+  width: auto;
+  animation: loaderPulse 1.4s ease-in-out infinite;
+}
+
+.page-loader-spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid #f0f0f0;
+  border-top-color: map-get($colors, primary);
+  border-radius: 50%;
+  animation: loaderSpin 0.8s linear infinite;
+}
+
+// ==========================================
+// HEADER
+// ==========================================
+.site-header {
+  position: relative;
+  z-index: 1030;
+  background: map-get($colors, primary);
+
+  .navbar {
+    padding: 0.9rem 0;
+
+    @include max(991.98px) {
+      padding: 0.7rem 0;
+    }
+  }
+
+  .container-fluid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    @include max(575.98px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  .site-logo {
+    height: 60px;
+    width: auto;
+
+    @include max(575.98px) {
+      height: 26px;
+    }
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.35rem;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .navbar-nav {
+    align-items: center;
+
+    @include min(992px) {
+      gap: 0.2rem;
+    }
+  }
+
+  .nav-link {
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.65rem 1rem !important;
+    @include transition(color, 0.25s, ease);
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: map-get($colors, secondary);
+    }
+  }
+
+  .dropdown-menu {
+    border: none;
+    border-radius: 10px;
+    padding: 0.6rem;
+    margin-top: 0 !important;
+    @include box-shadow(0, 12px, 30px, rgba(0, 0, 0, 0.14));
+
+    @include min(992px) {
+      margin-top: 0.5rem !important;
+      // always in the DOM flow so :hover can reveal it without JS;
+      // opacity/visibility (not display) drive the open state
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+  }
+
+  .dropdown-item {
+    color: map-get($colors, black);
+    font-size: 0.92rem;
+    border-radius: 6px;
+    padding: 0.55rem 0.9rem;
+    white-space: normal;
+    @include transition(background, 0.2s, ease);
+
+    &:hover,
+    &:focus {
+      background: rgba(41, 185, 154, 0.12);
+      color: map-get($colors, primary);
+    }
+
+    @include min(992px) {
+      white-space: nowrap;
+    }
+  }
+
+  .dropdown-menu-services {
+    @include min(992px) {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      gap: 0.1rem 1.5rem;
+    }
+  }
+
+  // open on hover (desktop); click/.show still works as a fallback for keyboard use
+  @include min(992px) {
+    .nav-item.dropdown:hover > .dropdown-menu,
+    .dropdown-menu.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  .btn-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: 1.5px solid #fff;
+    border-radius: 50px;
+    padding: 0.55rem 1.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    @include transition(all, 0.25s, ease);
+
+    &:hover,
+    &:focus {
+      background: map-get($colors, secondary);
+      border-color: map-get($colors, secondary);
+      color: #fff;
+    }
+  }
+
+  .btn-book-mobile {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  // mobile off-canvas menu
+  .offcanvas {
+    background: map-get($colors, primary);
+    width: min(300px, 85vw);
+  }
+
+  .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+    .site-logo {
+      height: 28px;
+    }
+  }
+
+  @include max(991.98px) {
+    .dropdown-menu {
+      position: static;
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: none;
+      margin: 0.2rem 0 0.4rem !important;
+    }
+
+    .dropdown-item {
+      color: rgba(255, 255, 255, 0.85);
+
+      &:hover,
+      &:focus {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+      }
+    }
+  }
+}
+
