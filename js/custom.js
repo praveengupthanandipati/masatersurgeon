@@ -226,14 +226,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// Ensure header class toggling works correctly
+// Header: collapse the top info bar once the page is scrolled, leaving
+// just the compact nav sticky at the top.
+// Collapsing shrinks the sticky header's own height, which shifts the
+// page content and scroll position right at the same threshold that
+// triggers the collapse - a single trigger point flickers on/off in a
+// loop. A gap between the collapse/expand thresholds (hysteresis) stops
+// that: once collapsed, only scrolling back up past a lower point
+// re-expands it, so the shrink itself can never retrigger the toggle.
 $(function () {
-  const $header = $(".fixed-top");
+  const $header = $(".site-header");
+  let isScrolled = false;
   function toggleHeaderClass() {
-    if ($(window).scrollTop() > 10) {
-      $header.addClass("fixed-top-nav");
-    } else {
-      $header.removeClass("fixed-top-nav");
+    const scrollTop = $(window).scrollTop();
+    if (!isScrolled && scrollTop > 80) {
+      isScrolled = true;
+      $header.addClass("is-scrolled");
+    } else if (isScrolled && scrollTop < 40) {
+      isScrolled = false;
+      $header.removeClass("is-scrolled");
     }
   }
   $(window).on('scroll', toggleHeaderClass);
@@ -349,20 +360,35 @@ var swiper = new Swiper(".homeSwiper", {
   },
 });
 
-var swiper = new Swiper(".testimonials-swiper", {
-  spaceBetween: 0,
-  centeredSlides: true,
+// Testimonials carousel (12 slides, smooth continuous loop)
+var testimonialsSwiper = new Swiper(".testimonials-swiper", {
+  slidesPerView: 1,
+  spaceBetween: 24,
+  loop: true,
+  speed: 700,
+  grabCursor: true,
   autoplay: {
-    delay: 5000,
-    disableOnInteraction: true,
+    delay: 4000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
   },
   pagination: {
-    el: ".swiper-pagination",
+    el: ".testimonials-section .swiper-pagination",
     clickable: true,
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".testimonials-section .swiper-button-next",
+    prevEl: ".testimonials-section .swiper-button-prev",
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+    },
+    1200: {
+      slidesPerView: 3,
+      spaceBetween: 28,
+    },
   },
 });
 
@@ -638,4 +664,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('[data-src]').forEach(el => {
     observer.observe(el);
   });
+});
+
+// Footer copyright year
+document.addEventListener('DOMContentLoaded', function () {
+  var yearEl = document.getElementById('footerYear');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
