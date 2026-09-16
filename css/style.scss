@@ -75,6 +75,27 @@ a {
   animation: loaderSpin 0.8s linear infinite;
 }
 
+@keyframes loaderPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes loaderSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 // ==========================================
 // HEADER
 // ==========================================
@@ -758,8 +779,8 @@ a {
 
 .services-grid {
   display: grid;
-  // 5 columns so the 9 cards settle into two rows (5 + 4), like the reference
-  grid-template-columns: repeat(5, 1fr);
+  // 6 columns so the 12 cards settle into two clean rows (6 + 6)
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.5rem;
 
   @include minMax(576px, 991.98px) {
@@ -1785,6 +1806,90 @@ a {
     &:focus-visible {
       color: map-get($colors, secondary);
     }
+  }
+}
+
+// ==========================================
+// FLOATING ACTIONS (WhatsApp + back to top)
+// ==========================================
+.floating-actions {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1040;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+
+  @include max(575.98px) {
+    right: 1rem;
+    bottom: 1rem;
+    gap: 0.7rem;
+  }
+}
+
+.floating-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  @include box-shadow(0, 10px, 25px, rgba(0, 0, 0, 0.25));
+  @include transition(all, 0.25s, ease);
+
+  &:hover,
+  &:focus-visible {
+    background: #1ebe5a;
+    transform: scale(1.08);
+  }
+
+  @include max(575.98px) {
+    width: 48px;
+    height: 48px;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
+
+.floating-movetop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: map-get($colors, primary);
+  color: #fff;
+  font-size: 1.1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  @include box-shadow(0, 10px, 20px, rgba(0, 0, 0, 0.2));
+  @include transition(all, 0.3s, ease);
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: map-get($colors, secondary);
+  }
+
+  @include max(575.98px) {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 }
 
