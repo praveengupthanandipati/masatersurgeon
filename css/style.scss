@@ -1893,3 +1893,300 @@ a {
   }
 }
 
+// ==========================================
+// INNER PAGE BANNER (About, Doctors, etc.)
+// ==========================================
+.page-hero {
+  padding: 3.5rem 0;
+  background: map-get($colors, primary);
+  text-align: center;
+
+  @include max(767.98px) {
+    padding: 2.5rem 0;
+  }
+}
+
+.page-hero-title {
+  color: #fff;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 0.6rem;
+}
+
+.page-hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+
+  a {
+    color: rgba(255, 255, 255, 0.85);
+
+    &:hover,
+    &:focus-visible {
+      color: map-get($colors, secondary);
+    }
+  }
+
+  span {
+    color: map-get($colors, secondary);
+  }
+}
+
+// ==========================================
+// WHY CHOOSE US (about.php)
+// ==========================================
+.why-section {
+  padding: 4.5rem 0;
+  background: map-get($colors, white);
+
+  @include max(767.98px) {
+    padding: 3rem 0;
+  }
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+
+  @include max(991.98px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include max(575.98px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.why-card {
+  background: map-get($colors, white);
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  @include transition(all, 0.25s, ease);
+
+  @include max(767.98px) {
+    padding: 1.5rem 1.25rem;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: transparent;
+    @include box-shadow(0, 20px, 35px, rgba(0, 41, 29, 0.12));
+
+    .why-card-icon {
+      background: map-get($colors, secondary);
+      color: #fff;
+      transform: scale(1.08);
+    }
+  }
+}
+
+.why-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background: rgba(41, 185, 154, 0.1);
+  color: map-get($colors, primary);
+  font-size: 1.6rem;
+  @include transition(all, 0.25s, ease);
+
+  i {
+    line-height: 1;
+  }
+}
+
+.why-card-title {
+  color: map-get($colors, primary);
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.why-card-text {
+  color: map-get($colors, gray);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 0 !important;
+}
+
+// ==========================================
+// DOCTORS (doctors.php)
+// ==========================================
+.doctors-section {
+  padding: 4.5rem 0;
+  background: map-get($colors, white);
+
+  @include max(767.98px) {
+    padding: 3rem 0;
+  }
+}
+
+.doctors-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-row {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 3.5rem 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #ececec;
+  }
+
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+
+    .doctor-badge {
+      background: map-get($colors, primary);
+    }
+  }
+
+  @include max(991.98px) {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 2.5rem;
+    padding: 2.75rem 0;
+  }
+}
+
+.doctor-media {
+  position: relative;
+  flex: 0 0 36%;
+  max-width: 340px;
+
+  @include max(991.98px) {
+    max-width: 280px;
+    width: 100%;
+  }
+}
+
+.doctor-media-frame {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #ececec;
+  @include box-shadow(0, 25px, 50px, rgba(0, 41, 29, 0.14));
+}
+
+.doctor-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.doctor-badge {
+  position: absolute;
+  right: -1.25rem;
+  bottom: -1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: map-get($colors, secondary);
+  color: #fff;
+  font-size: 1.5rem;
+  border: 4px solid map-get($colors, white);
+  @include box-shadow(0, 10px, 20px, rgba(0, 41, 29, 0.22));
+
+  @include max(991.98px) {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+.doctor-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.doctor-eyebrow {
+  display: inline-block;
+  color: map-get($colors, secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.doctor-name {
+  color: map-get($colors, primary);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  margin-bottom: 0.6rem;
+}
+
+.doctor-specialty {
+  display: inline-block;
+  background: rgba(41, 185, 154, 0.1);
+  color: map-get($colors, secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+}
+
+.doctor-bio {
+  color: map-get($colors, gray);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 1.5rem !important;
+
+  @include max(991.98px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.doctor-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+
+  @include max(991.98px) {
+    justify-content: center;
+  }
+}
+
+.doctor-tag {
+  background: map-get($colors, lightgray);
+  color: map-get($colors, primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+}
+
+.doctor-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: map-get($colors, primary);
+  color: #fff;
+  padding: 0.85rem 1.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  @include transition(all, 0.25s, ease);
+
+  &:hover,
+  &:focus-visible {
+    background: map-get($colors, secondary);
+  }
+}
+
