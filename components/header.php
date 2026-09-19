@@ -1,5 +1,7 @@
     <?php if (!isset($data)) { $data = require __DIR__ . '/data.php'; } ?>
     <?php $currentPage = $currentPage ?? basename($_SERVER['SCRIPT_NAME'] ?? 'index.php'); ?>
+    <!-- scroll progress -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <!-- header -->
     <header class="site-header">
         <!-- top header -->
@@ -52,7 +54,7 @@
                             <?php foreach ($data['nav_links'] as $i => $link): ?>
                                 <?php if ($i === 1): ?>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
+                                        <a class="nav-link dropdown-toggle<?= in_array($currentPage, array_column($data['company_dropdown'], 'href'), true) ? ' active' : '' ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
                                         <ul class="dropdown-menu">
                                             <?php foreach ($data['company_dropdown'] as $company): ?>
                                                 <li><a class="dropdown-item<?= $currentPage === $company['href'] ? ' active' : '' ?>" href="<?= $company['href'] ?>"><?= $company['label'] ?></a></li>
@@ -60,10 +62,10 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                                        <a class="nav-link dropdown-toggle<?= in_array($currentPage, array_column($data['services_dropdown'], 'href'), true) ? ' active' : '' ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                                         <ul class="dropdown-menu dropdown-menu-services">
                                             <?php foreach ($data['services_dropdown'] as $service): ?>
-                                                <li><a class="dropdown-item" href="<?= $service['href'] ?>"><?= $service['label'] ?></a></li>
+                                                <li><a class="dropdown-item<?= $currentPage === $service['href'] ? ' active' : '' ?>" href="<?= $service['href'] ?>"><?= $service['label'] ?></a></li>
                                             <?php endforeach; ?>
                                         </ul>
                                     </li>

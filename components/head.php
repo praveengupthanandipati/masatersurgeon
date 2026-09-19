@@ -49,3 +49,5 @@
     <link rel="stylesheet" href="css/swiper.min.css" />
     <link rel="stylesheet" href="css/aos.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <!-- if JavaScript is off, AOS never runs, so keep animated content visible -->
+    <noscript><style>[data-aos]{opacity:1 !important;transform:none !important;}.page-loader{display:none !important;}</style></noscript>

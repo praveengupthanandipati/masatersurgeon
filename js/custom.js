@@ -252,14 +252,39 @@ $(function () {
   
   // Initialize AOS with premium settings
   if (typeof AOS !== 'undefined') {
+    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     AOS.init({
-      duration: 900,
+      duration: 800,
       once: true,
-      offset: 80,
+      offset: 60,
       easing: 'ease-out-cubic',
       anchorPlacement: 'top-bottom',
-      disable: false
+      disable: prefersReducedMotion
     });
+    // images/fonts finishing late shift the layout, so re-measure once everything has loaded
+    $(window).on('load', function () { AOS.refresh(); });
+  }
+
+  // Scroll progress bar (one rAF-throttled listener)
+  var progressBar = document.getElementById('scrollProgress');
+  if (progressBar) {
+    var progressTicking = false;
+    var updateProgress = function () {
+      var doc = document.documentElement;
+      var max = (doc.scrollHeight - window.innerHeight) || 1;
+      var ratio = Math.min(1, Math.max(0, (window.pageYOffset || doc.scrollTop) / max));
+      progressBar.style.webkitTransform = 'scaleX(' + ratio + ')';
+      progressBar.style.transform = 'scaleX(' + ratio + ')';
+      progressTicking = false;
+    };
+    var raf = window.requestAnimationFrame || function (cb) { return setTimeout(cb, 16); };
+    $(window).on('scroll resize', function () {
+      if (!progressTicking) {
+        progressTicking = true;
+        raf(updateProgress);
+      }
+    });
+    updateProgress();
   }
 
   // Scroll-triggered number counter animation
