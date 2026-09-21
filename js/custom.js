@@ -696,3 +696,193 @@ document.addEventListener('DOMContentLoaded', function () {
   var yearEl = document.getElementById('footerYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+
+// Contact form: client-side validation + AJAX submit (the server re-validates everything)
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+
+  var alertBox = document.getElementById('contactAlert');
+  var submitBtn = document.getElementById('contactSubmit');
+
+  var rules = {
+    name: function (v) {
+      if (!v) return 'Please enter your name.';
+      if (v.length < 2 || v.length > 80 || !/^[A-Za-zÀ-ɏऀ-෿][A-Za-zÀ-ɏऀ-෿\s.'-]*$/.test(v)) return 'Please enter a valid name (letters only, 2-80 characters).';
+    },
+    phone: function (v) {
+      if (!v) return 'Please enter your phone number.';
+      if (!/^\+?\d{10,15}$/.test(v.replace(/[\s().-]/g, ''))) return 'Please enter a valid phone number (10-15 digits).';
+    },
+    email: function (v) {
+      if (!v) return 'Please enter your email address.';
+      if (v.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return 'Please enter a valid email address.';
+    },
+    subject: function (v) {
+      if (!v) return 'Please enter a subject.';
+      if (v.length < 3 || v.length > 120) return 'Subject must be between 3 and 120 characters.';
+    },
+    message: function (v) {
+      if (!v) return 'Please enter your message.';
+      if (v.length < 10 || v.length > 2000) return 'Message must be between 10 and 2000 characters.';
+    }
+  };
+
+  function showError(name, message) {
+    var input = form.elements[name];
+    var out = form.querySelector('[data-error-for="' + name + '"]');
+    if (input) input.classList.toggle('is-invalid', !!message);
+    if (out) out.textContent = message || '';
+  }
+
+  function validateField(name) {
+    var message = rules[name](form.elements[name].value.trim()) || '';
+    showError(name, message);
+    return !message;
+  }
+
+  function showAlert(type, message) {
+    alertBox.className = 'contact-alert contact-alert-' + type;
+    alertBox.textContent = message;
+    alertBox.hidden = false;
+  }
+
+  Object.keys(rules).forEach(function (name) {
+    var input = form.elements[name];
+    input.addEventListener('blur', function () { validateField(name); });
+    input.addEventListener('input', function () {
+      if (input.classList.contains('is-invalid')) validateField(name);
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    alertBox.hidden = true;
+
+    var firstInvalid = null;
+    Object.keys(rules).forEach(function (name) {
+      if (!validateField(name) && !firstInvalid) firstInvalid = form.elements[name];
+    });
+    if (firstInvalid) {
+      firstInvalid.focus();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.status === 'success') {
+          form.reset();
+          Object.keys(rules).forEach(function (name) { showError(name, ''); });
+        } else if (data.errors) {
+          Object.keys(data.errors).forEach(function (name) { showError(name, data.errors[name]); });
+        }
+        showAlert(data.status === 'success' ? 'success' : 'error', data.message || 'Something went wrong. Please try again.');
+      })
+      .catch(function () {
+        showAlert('error', 'Network error. Please check your connection and try again.');
+      })
+      .finally(function () { submitBtn.disabled = false; });
+  });
+});
+
+// Free consultation form: client-side validation + AJAX submit (the server re-validates everything)
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('apptForm');
+  if (!form) return;
+
+  var alertBox = document.getElementById('apptAlert');
+  var submitBtn = document.getElementById('apptSubmit');
+
+  var rules = {
+    name: function (v) {
+      if (!v) return 'Please enter the patient name.';
+      if (v.length < 2 || v.length > 80 || !/^[A-Za-zÀ-ɏऀ-෿][A-Za-zÀ-ɏऀ-෿\s.'-]*$/.test(v)) return 'Please enter a valid name (letters only, 2-80 characters).';
+    },
+    phone: function (v) {
+      if (!v) return 'Please enter your mobile number.';
+      var digits = v.replace(/[\s().-]/g, '').replace(/^(?:\+?91|0)(?=\d{10}$)/, '');
+      if (!/^[6-9]\d{9}$/.test(digits)) return 'Please enter a valid 10 digit mobile number.';
+    },
+    city: function (v) {
+      if (!v) return 'Please select your city.';
+    },
+    treatment: function (v) {
+      if (!v) return 'Please select a disease or treatment.';
+    }
+  };
+
+  function showError(name, message) {
+    var input = form.elements[name];
+    var out = form.querySelector('[data-error-for="' + name + '"]');
+    if (input) input.classList.toggle('is-invalid', !!message);
+    if (out) out.textContent = message || '';
+  }
+
+  function validateField(name) {
+    var message = rules[name](form.elements[name].value.trim()) || '';
+    showError(name, message);
+    return !message;
+  }
+
+  function showAlert(type, message) {
+    alertBox.className = 'contact-alert contact-alert-' + type;
+    alertBox.textContent = message;
+    alertBox.hidden = false;
+  }
+
+  Object.keys(rules).forEach(function (name) {
+    var input = form.elements[name];
+    input.addEventListener('blur', function () { validateField(name); });
+    input.addEventListener('input', function () {
+      if (input.classList.contains('is-invalid')) validateField(name);
+    });
+    input.addEventListener('change', function () { validateField(name); });
+  });
+
+  // keep only digits and common separators in the mobile field
+  form.elements.phone.addEventListener('input', function () {
+    this.value = this.value.replace(/[^\d+\s-]/g, '');
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    alertBox.hidden = true;
+
+    var firstInvalid = null;
+    Object.keys(rules).forEach(function (name) {
+      if (!validateField(name) && !firstInvalid) firstInvalid = form.elements[name];
+    });
+    if (firstInvalid) {
+      firstInvalid.focus();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.status === 'success') {
+          form.reset();
+          Object.keys(rules).forEach(function (name) { showError(name, ''); });
+        } else if (data.errors) {
+          Object.keys(data.errors).forEach(function (name) { showError(name, data.errors[name]); });
+        }
+        showAlert(data.status === 'success' ? 'success' : 'error', data.message || 'Something went wrong. Please try again.');
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function () {
+        showAlert('error', 'Network error. Please check your connection and try again.');
+      })
+      .finally(function () { submitBtn.disabled = false; });
+  });
+});

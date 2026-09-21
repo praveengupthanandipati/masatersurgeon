@@ -47,6 +47,18 @@ return [
             'keywords'    => 'master surgeon faq, surgery questions and answers, appendicitis faq, gallstones faq, hernia surgery faq, piles treatment faq, colonoscopy faq, hysterectomy faq, thyroid surgery faq, diabetes management faq, orthopedic faq, pain management faq',
             'canonical'   => 'https://www.mastersurgeon.in/faq.php',
         ],
+        'contact.php' => [
+            'title'       => 'Contact Us | Master Surgeon &mdash; Book a Free Appointment with Dr. S. Ravi Kumar',
+            'description' => 'Contact Master Surgeon to book a free consultation with Dr. S. Ravi Kumar, Laparoscopic &amp; Laser Surgeon. Call +91 96767 17852, WhatsApp or send us an enquiry about hernia, piles, gallbladder, appendix and other surgical care.',
+            'keywords'    => 'contact master surgeon, book appointment surgeon, free surgery consultation, surgeon appointment, laparoscopic surgeon contact, dr s ravi kumar contact, master surgeon phone number, master surgeon email, master surgeon address, surgeon near me, general surgeon near me, laparoscopic surgery clinic, surgery clinic contact, emergency surgeon helpline, orthopedic doctor appointment, whatsapp appointment, enquiry form',
+            'canonical'   => 'https://www.mastersurgeon.in/contact.php',
+        ],
+        'book-free-appointment.php' => [
+            'title'       => 'Book a FREE Doctor Consultation Online | Master Surgeon',
+            'description' => 'Book your free consultation with Master Surgeon in under a minute. Share your name, mobile number, city and condition &mdash; our care coordinator will call you at the earliest to schedule a visit with Dr. S. Ravi Kumar.',
+            'keywords'    => 'book free consultation, free doctor consultation, book surgeon appointment, book appointment online, free surgery consultation, laparoscopic surgeon appointment, hernia surgeon appointment, piles doctor appointment, gallbladder surgeon consultation, surgeon consultation near me, consult surgeon online, care coordinator, second opinion surgery, dr s ravi kumar appointment, master surgeon appointment',
+            'canonical'   => 'https://www.mastersurgeon.in/book-free-appointment.php',
+        ],
         'pain-management.php' => [
             'title'       => 'Pain Management (Back, Joint, Nerve &amp; Post-Surgery Pain Relief) | Master Surgeon',
             'description' => 'Living with back, joint, nerve or post-surgery pain? Master Surgeon offers personalized pain management &mdash; finding the cause, safe relief, guided movement and regular follow-up to get you back to daily life.',
@@ -106,9 +118,9 @@ return [
     'nav_links' => [
         ['label' => "Home", 'href' => 'index.php'],
         ['label' => "FAQ's", 'href' => 'faq.php'],
-        ['label' => 'Blogs', 'href' => '#'],
-        ['label' => 'Ask a question', 'href' => '#'],
-        ['label' => 'Contact us', 'href' => '#'],
+        ['label' => 'Blogs', 'href' => 'blogs.php'],
+        // ['label' => 'Ask a question', 'href' => '#'],
+        ['label' => 'Contact us', 'href' => 'contact.php'],
     ],
 
     'company_dropdown' => [
@@ -244,7 +256,7 @@ return [
         ['label' => "FAQ's", 'href' => 'faq.php'],
         ['label' => 'Blogs', 'href' => '#'],
         ['label' => 'Ask a question', 'href' => '#'],
-        ['label' => 'Contact us', 'href' => '#'],
+        ['label' => 'Contact us', 'href' => 'contact.php'],
     ],
 
     'footer_services' => [
@@ -260,6 +272,52 @@ return [
         ['icon' => 'fi-rs-phone-call', 'type' => 'tel', 'href' => 'tel:+919676717852', 'text' => '+91 96767 17852'],
         ['icon' => 'fi-rs-envelope', 'type' => 'mailto', 'href' => 'mailto:info@mastersurgeon.com', 'text' => 'info@mastersurgeon.com'],
         ['icon' => 'fi-rs-clock', 'type' => 'text', 'text' => 'Mon - Sat: 9:00 AM - 8:00 PM'],
+    ],
+
+    // used on contact.php (leave 'address' empty to hide it until the clinic address is added)
+    'contact_info' => [
+        'phone_display' => '+91 96767 17852',
+        'phone_href'    => 'tel:+919676717852',
+        'whatsapp_href' => 'https://wa.me/919676717852',
+        'email'         => 'info@mastersurgeon.com',
+        'address'       => '',
+        'hours'         => 'Mon - Sat: 9:00 AM - 8:00 PM',
+    ],
+
+    // used on book-free-appointment.php (edit these lists to change the form's dropdowns and page content)
+    'appointment' => [
+        'cities' => ['Hyderabad', 'Secunderabad', 'Vijayawada', 'Visakhapatnam', 'Guntur', 'Warangal', 'Other'],
+        'stats' => [
+            ['value' => '50,000+', 'label' => 'Happy Patients'],
+            ['value' => '12', 'label' => 'Treatment Areas'],
+            ['value' => '24x7', 'label' => 'Helpline'],
+        ],
+        'steps' => [
+            ['icon' => 'fi-rs-phone-call', 'text' => 'Once you share your details, our care coordinator will get in touch with you.'],
+            ['icon' => 'fi-rs-headset', 'text' => 'The coordinator will understand your symptoms and health condition in detail.'],
+            ['icon' => 'fi-rs-user-md', 'text' => 'Your consultation will be scheduled at the earliest.'],
+        ],
+        'expect' => [
+            ['icon' => 'fi-rs-comment', 'title' => 'A Detailed Discussion', 'text' => 'The surgeon listens to your symptoms, history and concerns without rushing.'],
+            ['icon' => 'fi-rs-stethoscope', 'title' => 'Examination &amp; Reports', 'text' => 'A focused check-up, plus a review of any scans or reports you bring. Extra tests are advised only if needed.'],
+            ['icon' => 'fi-rs-operation', 'title' => 'Honest Treatment Options', 'text' => 'Clear advice on whether you need surgery at all, and the open, laparoscopic or laser options where it applies.'],
+            ['icon' => 'fi-rs-calendar', 'title' => 'Recovery &amp; Next Steps', 'text' => 'What recovery looks like, how long it takes and what to plan for, including insurance and admission paperwork.'],
+        ],
+        'bring' => [
+            'Previous reports, scans and prescriptions related to your problem',
+            'A list of medicines you take, and any allergies',
+            'Records of earlier surgeries or hospital stays, if any',
+            'A photo ID and your insurance policy details, if you plan to use insurance',
+            'A short list of your symptoms and the questions you want answered',
+            'A family member or friend, if you would like support during the visit',
+        ],
+        'faqs' => [
+            ['q' => 'Is the first consultation really free?', 'a' => 'Yes. Your first consultation with our team is free. Any tests or treatment that may be advised later will be explained to you before you decide.'],
+            ['q' => 'How soon will someone contact me after I submit the form?', 'a' => 'Our care coordinator will call you at the earliest to understand your symptoms and fix a convenient time. For urgent problems, do not wait &mdash; call our 24x7 helpline on +91 96767 17852.'],
+            ['q' => 'Will I definitely need surgery?', 'a' => 'Not necessarily. Many conditions can be managed without surgery or watched over time. You will get honest advice on all your options, and the decision is always yours.'],
+            ['q' => 'Can I book for a family member?', 'a' => 'Yes. Enter the patient&rsquo;s name in the form and a mobile number where we can reach you or the patient.'],
+            ['q' => 'Is my information kept private?', 'a' => 'Yes. Your details are used only to arrange your consultation. We prioritize your medical privacy.'],
+        ],
     ],
 
     // used on faq.php (also feeds the FAQPage structured data)

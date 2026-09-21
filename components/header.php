@@ -36,7 +36,7 @@
                 </a>
 
                 <div class="header-actions order-lg-3">
-                    <a href="#" class="btn btn-book d-none d-lg-inline-flex">Book Free Appointment</a>
+                    <a href="book-free-appointment.php" class="btn btn-book d-none d-lg-inline-flex">Book Free Appointment</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#siteNav" aria-controls="siteNav" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -75,7 +75,7 @@
                                 </li>
                             <?php endforeach; ?>
                         </ul>
-                        <a href="#" class="btn btn-book btn-book-mobile d-lg-none">Book Free Appointment</a>
+                        <a href="book-free-appointment.php" class="btn btn-book btn-book-mobile d-lg-none">Book Free Appointment</a>
                     </div>
                 </div>
             </div>

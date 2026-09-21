@@ -46,7 +46,7 @@
                         </li>
                     <?php endforeach; ?>
                 </ul>
-                <a href="#" class="footer-book-btn">Book Free Appointment</a>
+                <a href="book-free-appointment.php" class="footer-book-btn">Book Free Appointment</a>
             </div>
         </div>
 
