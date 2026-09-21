@@ -1,5 +1,20 @@
 <?php
-// Contact form: validation + email sending. Included by contact.php.
+// Contact form and free-consultation form: validation + email sending.
+// Written for PHP 7.0+ (no arrow functions, match or ??=) so it runs on older shared hosting.
+
+// Some hosts ship PHP without the mbstring extension; provide minimal stand-ins so the pages don't fatal.
+if (!function_exists('mb_strlen')) {
+    function mb_strlen($string, $encoding = null)
+    {
+        return (int) preg_match_all('/./us', (string) $string);
+    }
+}
+if (!function_exists('mb_encode_mimeheader')) {
+    function mb_encode_mimeheader($string, $charset = 'UTF-8', $transferEncoding = 'B', $linefeed = "\r\n")
+    {
+        return preg_match('/^[\x20-\x7E]*$/', $string) ? $string : '=?UTF-8?B?' . base64_encode($string) . '?=';
+    }
+}
 
 function contact_e($value): string
 {
@@ -88,12 +103,15 @@ function contact_mail_footer(): string
 function contact_mail_config(): array
 {
     static $config = null;
-    return $config ??= require __DIR__ . '/mail-config.php';
+    if ($config === null) {
+        $config = require __DIR__ . '/mail-config.php';
+    }
+    return $config;
 }
 
 // Sends through SMTP (PHPMailer) when an SMTP host is configured, otherwise falls back to PHP mail().
 // $subject must already be free of line breaks (validated fields are).
-function contact_send_mail(string $recipient, string $subject, string $body, ?string $replyName = null, ?string $replyEmail = null): bool
+function contact_send_mail(string $recipient, string $subject, string $body, $replyName = null, $replyEmail = null): bool
 {
     $config = contact_mail_config();
     $smtp = $config['smtp'];
@@ -124,7 +142,7 @@ function contact_send_mail(string $recipient, string $subject, string $body, ?st
     return $sent;
 }
 
-function contact_send_smtp(array $config, string $from, string $recipient, string $subject, string $body, ?string $replyName, ?string $replyEmail): bool
+function contact_send_smtp(array $config, string $from, string $recipient, string $subject, string $body, $replyName, $replyEmail): bool
 {
     $autoload = __DIR__ . '/../vendor/autoload.php';
     if (!is_file($autoload)) {
@@ -142,11 +160,13 @@ function contact_send_smtp(array $config, string $from, string $recipient, strin
         $mail->SMTPAuth = $smtp['username'] !== '';
         $mail->Username = $smtp['username'];
         $mail->Password = $smtp['password'];
-        $mail->SMTPSecure = match ($smtp['secure']) {
-            'ssl' => PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS,
-            'tls' => PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS,
-            default => '',
-        };
+        if ($smtp['secure'] === 'ssl') {
+            $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;
+        } elseif ($smtp['secure'] === 'tls') {
+            $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        } else {
+            $mail->SMTPSecure = '';
+        }
         $mail->SMTPAutoTLS = $smtp['secure'] !== '';
         $mail->Timeout = 15;
         $mail->CharSet = 'UTF-8';
@@ -248,7 +268,7 @@ function handle_appointment_request(string $recipient, array $cities, array $tre
         return $state;
     }
 
-    [$values, $errors] = validate_appointment_form($_POST, $cities, $treatments);
+    list($values, $errors) = validate_appointment_form($_POST, $cities, $treatments);
     $state['values'] = $values;
     if ($errors) {
         $state['status'] = 'error';
@@ -300,7 +320,7 @@ function handle_contact_request(string $recipient): array
         return $state;
     }
 
-    [$values, $errors] = validate_contact_form($_POST);
+    list($values, $errors) = validate_contact_form($_POST);
     if ($errors) {
         $state['status'] = 'error';
         $state['message'] = 'Please correct the highlighted fields.';

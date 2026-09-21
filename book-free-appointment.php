@@ -1,11 +1,11 @@
 <?php
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) { @session_start(); }
 $data = require __DIR__ . '/components/data.php';
 require __DIR__ . '/components/contact-form.php';
 
 $info = $data['contact_info'];
 $appt = $data['appointment'];
-$treatments = array_map(fn($t) => html_entity_decode($t, ENT_QUOTES | ENT_HTML5, 'UTF-8'), $data['treatment_options']);
+$treatments = array_map(function ($t) { return html_entity_decode($t, ENT_QUOTES | ENT_HTML5, 'UTF-8'); }, $data['treatment_options']);
 $treatments[] = 'Other / Not sure';
 
 if (empty($_SESSION['contact_csrf'])) {
@@ -22,7 +22,7 @@ if (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'XMLHttpRequest') {
 
 $old = $form['values'];
 $err = $form['errors'];
-$invalid = fn(string $key) => isset($err[$key]) ? ' is-invalid' : '';
+$invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid' : ''; };
 ?>
 <!DOCTYPE html>
 <html lang="en">

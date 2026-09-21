@@ -1,5 +1,5 @@
 <?php
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) { @session_start(); }
 $data = require __DIR__ . '/components/data.php';
 require __DIR__ . '/components/contact-form.php';
 
@@ -18,8 +18,8 @@ if (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'XMLHttpRequest') {
 
 $old = $form['values'];
 $err = $form['errors'];
-$field = fn(string $key) => contact_e($old[$key] ?? '');
-$invalid = fn(string $key) => isset($err[$key]) ? ' is-invalid' : '';
+$field = function ($key) use ($old) { return contact_e(isset($old[$key]) ? $old[$key] : ''); };
+$invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid' : ''; };
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -54,8 +54,8 @@
             <div class="container-90 footer-bottom-inner">
                 <p>&copy; <span id="footerYear"></span> Master Surgeon. All rights reserved.</p>
                 <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="privacy.php">Privacy Policy</a>
+                    <a href="terms.php">Terms &amp; Conditions</a>
                 </div>
             </div>
         </div>

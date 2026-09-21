@@ -886,3 +886,12 @@ document.addEventListener('DOMContentLoaded', function () {
       .finally(function () { submitBtn.disabled = false; });
   });
 });
+
+// Accordions: opening one FAQ item closes every other open item on the page
+document.addEventListener('toggle', function (e) {
+  var item = e.target;
+  if (!item.matches || !item.matches('details.faq-item') || !item.open) return;
+  document.querySelectorAll('details.faq-item[open]').forEach(function (other) {
+    if (other !== item) other.open = false;
+  });
+}, true);

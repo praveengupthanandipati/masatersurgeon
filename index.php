@@ -244,7 +244,7 @@
 
                 <div class="blogs-grid">
                     <?php foreach ($data['blogs'] as $blog): ?>
-                        <a href="#" class="blog-card" data-aos="fade-up" data-aos-delay="<?= $blog['delay'] ?>">
+                        <a href="<?= $blog['href'] ?? '#' ?>" class="blog-card" data-aos="fade-up" data-aos-delay="<?= $blog['delay'] ?>">
                             <div class="blog-media">
                                 <img src="<?= $blog['img'] ?>" alt="<?= $blog['tag'] ?>" class="blog-img">
                             </div>

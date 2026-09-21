@@ -59,6 +59,42 @@ return [
             'keywords'    => 'book free consultation, free doctor consultation, book surgeon appointment, book appointment online, free surgery consultation, laparoscopic surgeon appointment, hernia surgeon appointment, piles doctor appointment, gallbladder surgeon consultation, surgeon consultation near me, consult surgeon online, care coordinator, second opinion surgery, dr s ravi kumar appointment, master surgeon appointment',
             'canonical'   => 'https://www.mastersurgeon.in/book-free-appointment.php',
         ],
+        'terms.php' => [
+            'title'       => 'Terms &amp; Conditions | Master Surgeon',
+            'description' => 'Read the Terms &amp; Conditions for using mastersurgeon.in and booking a free consultation with Master Surgeon, including medical disclaimer, appointments, fees, insurance and your responsibilities.',
+            'keywords'    => 'master surgeon terms and conditions, terms of service, website terms of use, free consultation terms, appointment terms, medical disclaimer, patient responsibilities, treatment consent, master surgeon',
+            'canonical'   => 'https://www.mastersurgeon.in/terms.php',
+        ],
+        'signs-five-you-might-need-ernia-surgery.php' => [
+            'title'       => '5 Signs You Might Need Hernia Surgery | Master Surgeon Blog',
+            'description' => 'Learn the history of hernia treatment and the 5 warning signs that you may need hernia surgery: a bulge, pain, growth, a bulge that will not go back in, and emergency symptoms. Expert advice from Master Surgeon.',
+            'keywords'    => 'signs you need hernia surgery, hernia symptoms, hernia bulge, inguinal hernia symptoms, umbilical hernia symptoms, hernia pain, strangulated hernia, hernia emergency, hernia history, when to see a surgeon for hernia, laparoscopic hernia repair, hernia surgeon near me, master surgeon',
+            'canonical'   => 'https://www.mastersurgeon.in/signs-five-you-might-need-ernia-surgery.php',
+        ],
+        'laparoscopic-vs-open-surgery.php' => [
+            'title'       => 'Laparoscopic vs. Open Surgery: What&rsquo;s the Difference? | Master Surgeon Blog',
+            'description' => 'Laparoscopic (keyhole) vs. open surgery explained in simple words: how each works, differences in pain, hospital stay, scarring and recovery, when open surgery is still better, and how to choose the right option.',
+            'keywords'    => 'laparoscopic vs open surgery, laparoscopic surgery vs open surgery, difference between laparoscopic and open surgery, keyhole surgery, laparoscopic surgery benefits, open surgery recovery time, laparoscopic surgery recovery, minimally invasive surgery, laparoscopic hernia repair, laparoscopic cholecystectomy, laparoscopic appendectomy, laparoscopic hysterectomy, which surgery is better, laparoscopic surgeon near me, master surgeon',
+            'canonical'   => 'https://www.mastersurgeon.in/laparoscopic-vs-open-surgery.php',
+        ],
+        'piles-fistula-fissure-myths-vs-facts.php' => [
+            'title'       => 'Piles, Fistula &amp; Fissure: Myths vs. Facts | Master Surgeon Blog',
+            'description' => 'Separate myths from facts about piles, anal fistula and fissure: causes, symptoms, when bleeding is serious, whether surgery is always needed, and how modern laser treatment helps. Advice from Master Surgeon.',
+            'keywords'    => 'piles myths and facts, piles vs fissure vs fistula, difference between piles fissure and fistula, piles causes, does spicy food cause piles, piles symptoms, rectal bleeding causes, anal fissure symptoms, anal fistula treatment, fistula surgery, laser piles treatment, piles treatment without surgery, haemorrhoids, piles surgeon near me, master surgeon',
+            'canonical'   => 'https://www.mastersurgeon.in/piles-fistula-fissure-myths-vs-facts.php',
+        ],
+        'life-after-gallbladder-surgery.php' => [
+            'title'       => 'Life After Gallbladder Surgery: What to Expect | Master Surgeon Blog',
+            'description' => 'What to expect after gallbladder removal: recovery timeline, diet after cholecystectomy, activity and wound care, and when to call your doctor. Practical guidance from Master Surgeon.',
+            'keywords'    => 'life after gallbladder surgery, gallbladder removal recovery, cholecystectomy recovery time, laparoscopic gallbladder surgery recovery, diet after gallbladder removal, what to eat after gallbladder surgery, living without a gallbladder, gallbladder surgery side effects, post cholecystectomy diarrhoea, activity after gallbladder surgery, gallbladder surgeon near me, master surgeon',
+            'canonical'   => 'https://www.mastersurgeon.in/life-after-gallbladder-surgery.php',
+        ],
+        'privacy.php' => [
+            'title'       => 'Privacy Policy | Master Surgeon',
+            'description' => 'How Master Surgeon collects, uses and protects your personal information on mastersurgeon.in, including the contact and free consultation forms, cookies, your rights and how to reach us.',
+            'keywords'    => 'master surgeon privacy policy, patient data privacy, personal information protection, medical privacy, website privacy policy, data protection india, dpdp act, cookies policy, consultation form privacy, master surgeon',
+            'canonical'   => 'https://www.mastersurgeon.in/privacy.php',
+        ],
         'pain-management.php' => [
             'title'       => 'Pain Management (Back, Joint, Nerve &amp; Post-Surgery Pain Relief) | Master Surgeon',
             'description' => 'Living with back, joint, nerve or post-surgery pain? Master Surgeon offers personalized pain management &mdash; finding the cause, safe relief, guided movement and regular follow-up to get you back to daily life.',
@@ -243,10 +279,10 @@ return [
     ],
 
     'blogs' => [
-        ['img' => 'img/slider01.jpg', 'tag' => 'Hernia Care', 'title' => '5 Signs You Might Need Hernia Surgery', 'excerpt' => "Know the early warning signs and when it's the right time to consult a surgeon.", 'read_time' => '4 min read', 'delay' => 0],
-        ['img' => 'img/slider02.jpg', 'tag' => 'Laparoscopy', 'title' => "Laparoscopic vs. Open Surgery: What's the Difference?", 'excerpt' => 'A simple breakdown of both techniques and how they affect recovery time.', 'read_time' => '5 min read', 'delay' => 80],
-        ['img' => 'img/slider03.jpg', 'tag' => 'Piles Care', 'title' => 'Piles, Fistula &amp; Fissure: Myths vs. Facts', 'excerpt' => 'Separating common misconceptions from what modern treatment actually involves.', 'read_time' => '3 min read', 'delay' => 160],
-        ['img' => 'img/slider01.jpg', 'tag' => 'Recovery', 'title' => 'Life After Gallbladder Surgery: What to Expect', 'excerpt' => 'Diet, activity and recovery timelines to help you plan your first few weeks.', 'read_time' => '4 min read', 'delay' => 240],
+        ['href' => 'signs-five-you-might-need-ernia-surgery.php', 'img' => 'img/slider01.jpg', 'tag' => 'Hernia Care', 'title' => '5 Signs You Might Need Hernia Surgery', 'excerpt' => "Know the early warning signs and when it's the right time to consult a surgeon.", 'read_time' => '4 min read', 'delay' => 0],
+        ['href' => 'laparoscopic-vs-open-surgery.php', 'img' => 'img/slider02.jpg', 'tag' => 'Laparoscopy', 'title' => "Laparoscopic vs. Open Surgery: What's the Difference?", 'excerpt' => 'A simple breakdown of both techniques and how they affect recovery time.', 'read_time' => '5 min read', 'delay' => 80],
+        ['href' => 'piles-fistula-fissure-myths-vs-facts.php', 'img' => 'img/slider03.jpg', 'tag' => 'Piles Care', 'title' => 'Piles, Fistula &amp; Fissure: Myths vs. Facts', 'excerpt' => 'Separating common misconceptions from what modern treatment actually involves.', 'read_time' => '3 min read', 'delay' => 160],
+        ['href' => 'life-after-gallbladder-surgery.php', 'img' => 'img/slider01.jpg', 'tag' => 'Recovery', 'title' => 'Life After Gallbladder Surgery: What to Expect', 'excerpt' => 'Diet, activity and recovery timelines to help you plan your first few weeks.', 'read_time' => '4 min read', 'delay' => 240],
     ],
 
     'footer_quick_links' => [
@@ -254,18 +290,24 @@ return [
         ['label' => 'About us', 'href' => 'about.php'],
         ['label' => 'Doctors', 'href' => 'doctors.php'],
         ['label' => "FAQ's", 'href' => 'faq.php'],
-        ['label' => 'Blogs', 'href' => '#'],
-        ['label' => 'Ask a question', 'href' => '#'],
+        ['label' => 'Blogs', 'href' => 'blogs.php'],
         ['label' => 'Contact us', 'href' => 'contact.php'],
+        ['label' => 'Book Free Consultation', 'href' => 'book-free-appointment.php'],
     ],
 
     'footer_services' => [
         ['label' => 'Hernia Surgery', 'href' => 'hernia-surgery-open-laparoscopy.php'],
         ['label' => 'Gallbladder Surgery', 'href' => 'cholecystectomy-open-laparoscopy.php'],
+        ['label' => 'Appendicectomy', 'href' => 'appendicectomy-open-laparoscopy.php'],
         ['label' => 'Piles, Fistula &amp; Fissure', 'href' => 'piles-fistula-and-fissure-surgery.php'],
+        ['label' => 'Hydrocele', 'href' => 'hydrocele.php'],
         ['label' => 'Hysterectomy', 'href' => 'hysterectomy-open-laparoscopy.php'],
         ['label' => 'Endoscopy / Colonoscopy', 'href' => 'endoscopy-colonoscopy.php'],
         ['label' => 'Breast &amp; Thyroid Disorders', 'href' => 'breast-and-thyroid-disorders.php'],
+        ['label' => 'Stomach &amp; Intestine Cancers', 'href' => 'stomach-intestine-cancers.php'],
+        ['label' => 'Orthopedic Care', 'href' => 'orthopedic-care.php'],
+        ['label' => 'Diabetes Management', 'href' => 'diabetes-management.php'],
+        ['label' => 'Pain Management', 'href' => 'pain-management.php'],
     ],
 
     'footer_contact' => [

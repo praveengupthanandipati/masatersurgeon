@@ -3033,3 +3033,301 @@ textarea.contact-input {
     line-height: 1.5;
   }
 }
+
+// legal pages (privacy policy)
+.legal-section {
+  padding: 4rem 0;
+  background: #e7eefa;
+
+  @include max(767.98px) {
+    padding: 2.5rem 0;
+  }
+}
+
+.legal-card {
+  max-width: 880px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 36px rgba(0, 41, 29, 0.08);
+  color: #3d4757;
+  line-height: 1.75;
+
+  @include max(575.98px) {
+    padding: 1.5rem 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: map-get($colors, primary);
+    margin: 2.25rem 0 0.75rem;
+    scroll-margin-top: 110px;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: map-get($colors, black);
+    margin: 1.25rem 0 0.4rem;
+  }
+
+  p {
+    margin-bottom: 0.9rem;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    margin-bottom: 0.45rem;
+  }
+
+  a {
+    color: map-get($colors, secondary);
+    font-weight: 500;
+    overflow-wrap: anywhere;
+
+    &:hover {
+      color: map-get($colors, primary);
+    }
+  }
+}
+
+.legal-updated {
+  display: inline-block;
+  background: map-get($colors, lightprimary);
+  color: map-get($colors, primary);
+  border-radius: 50px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.legal-intro {
+  font-size: 1.02rem;
+}
+
+.legal-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0.5rem;
+  padding: 1rem;
+  background: #f5f8fb;
+  border-radius: 14px;
+
+  a {
+    font-size: 0.82rem;
+    background: #fff;
+    border: 1px solid #e3e9f0;
+    border-radius: 50px;
+    padding: 0.25rem 0.85rem;
+    color: map-get($colors, primary);
+
+    &:hover {
+      background: map-get($colors, secondary);
+      border-color: map-get($colors, secondary);
+      color: #fff;
+    }
+  }
+}
+
+.legal-card .legal-contact {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  i {
+    color: map-get($colors, secondary);
+    line-height: 1.75;
+  }
+}
+
+// blog article
+.article-cover {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 1.25rem;
+
+  @include max(575.98px) {
+    height: 200px;
+  }
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  color: map-get($colors, gray);
+
+  i {
+    color: map-get($colors, secondary);
+  }
+
+  .blog-tag {
+    margin: 0;
+  }
+}
+
+.article-sign {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #f5f8fb;
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 0.9rem;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  &.is-urgent {
+    background: #fdeeee;
+    border: 1px solid #f0b4b4;
+
+    h3 {
+      color: map-get($colors, red);
+    }
+
+    .article-sign-num {
+      background: map-get($colors, red);
+    }
+  }
+}
+
+.article-sign-num {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: map-get($colors, primary);
+  color: #fff;
+  font-weight: 700;
+}
+
+.article-cta {
+  margin: 2rem 0 1rem;
+  padding: 1.75rem;
+  text-align: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, map-get($colors, primary), #075240);
+
+  h3 {
+    color: #fff;
+    margin-top: 0;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .about-btn,
+  .about-btn:hover,
+  .about-btn:focus {
+    color: #fff;
+  }
+
+  .about-btn:hover {
+    background: #1f9e83;
+  }
+}
+
+.article-note {
+  font-size: 0.85rem;
+  color: map-get($colors, gray);
+}
+
+// article comparison table
+.article-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.article-compare {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.93rem;
+  border: 1px solid #e3e9f0;
+  border-radius: 14px;
+  overflow: hidden;
+
+  th,
+  td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e3e9f0;
+  }
+
+  th {
+    background: map-get($colors, primary);
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 0;
+  }
+
+  td:first-child {
+    font-weight: 600;
+    color: map-get($colors, primary);
+  }
+
+  tbody tr:nth-child(even) td {
+    background: #f5f8fb;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+}
+
+// myth vs fact cards
+.article-myth {
+  background: #f5f8fb;
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 0.9rem;
+
+  h3 {
+    margin-top: 0;
+    color: map-get($colors, red);
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.mf-tag {
+  display: inline-block;
+  margin-right: 0.4rem;
+  padding: 0.1rem 0.65rem;
+  border-radius: 50px;
+  background: map-get($colors, secondary);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
