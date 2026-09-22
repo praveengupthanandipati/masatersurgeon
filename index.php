@@ -55,6 +55,9 @@
                             </select>
                             <select class="hero-form-control" aria-label="Select City">
                                 <option selected disabled>Select City</option>
+                                <?php foreach ($data['appointment']['cities'] as $city): ?>
+                                    <option><?= htmlspecialchars($city) ?></option>
+                                <?php endforeach; ?>
                             </select>
                             <button type="button" class="hero-form-submit">Book Free Consultation</button>
                             <p class="hero-form-note"><i class="fi fi-rs-lock"></i> Your data is secured. We prioritize your medical privacy.</p>

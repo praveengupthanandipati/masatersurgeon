@@ -14,18 +14,18 @@
                 </div>
             </div>
 
-            <div class="footer-col">
-                <h4 class="footer-heading">Quick Links</h4>
-                <ul class="footer-links">
+            <div class="footer-col footer-acc">
+                <h4 class="footer-heading"><button type="button" class="footer-acc-btn" aria-expanded="true" aria-controls="footerQuickLinks">Quick Links <i class="fi fi-rs-angle-small-down"></i></button></h4>
+                <ul class="footer-links" id="footerQuickLinks">
                     <?php foreach ($data['footer_quick_links'] as $link): ?>
                         <li><a href="<?= $link['href'] ?>"><?= $link['label'] ?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </div>
 
-            <div class="footer-col">
-                <h4 class="footer-heading">Our Services</h4>
-                <ul class="footer-links">
+            <div class="footer-col footer-acc">
+                <h4 class="footer-heading"><button type="button" class="footer-acc-btn" aria-expanded="true" aria-controls="footerServices">Our Services <i class="fi fi-rs-angle-small-down"></i></button></h4>
+                <ul class="footer-links" id="footerServices">
                     <?php foreach ($data['footer_services'] as $service): ?>
                         <li><a href="<?= $service['href'] ?>"><?= $service['label'] ?></a></li>
                     <?php endforeach; ?>
