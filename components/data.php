@@ -219,7 +219,7 @@ return [
         [
             'number' => '01',
             'title' => 'Pre Surgery',
-            'bg' => 'img/slider01.jpg',
+            'bg' => 'img/presurgery.jpg',
             'delay' => 0,
             'points' => [
                 'Detailed consultation &amp; diagnosis',
@@ -231,7 +231,7 @@ return [
         [
             'number' => '02',
             'title' => 'During Surgery',
-            'bg' => 'img/slider02.jpg',
+            'bg' => 'img/duringsurgery.jpg',
             'delay' => 150,
             'points' => [
                 'Advanced laparoscopic technology',
@@ -243,7 +243,7 @@ return [
         [
             'number' => '03',
             'title' => 'Recovery',
-            'bg' => 'img/slider03.jpg',
+            'bg' => 'img/patientrecovery.jpg',
             'delay' => 300,
             'points' => [
                 'Dedicated post-op care coordinator',
