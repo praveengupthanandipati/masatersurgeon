@@ -29,33 +29,39 @@
 
         <!-- intro about pain management -->
         <section class="about-section">
-            <div class="container-90 about-inner">
-                <div class="about-media" data-aos="fade-right">
-                    <div class="about-media-frame">
-                        <img src="img/slider02.jpg" alt="Pain management and relief at Master Surgeon" class="about-img" loading="lazy">
-                    </div>
-                    <div class="about-badge">
-                        <i class="fi fi-rs-person-back-pain"></i>
-                        <div>
-                            <strong>Master Surgeon</strong>
-                            <span>Pain Care</span>
+            <div class="container-90">
+                <div class="row align-items-center g-4 g-lg-5 about-row">
+                    <div class="col-12 col-lg-5">
+                        <div class="about-media" data-aos="fade-right">
+                            <div class="about-media-frame">
+                                <img src="img/slider02.jpg" alt="Pain management and relief at Master Surgeon" class="about-img" loading="lazy">
+                            </div>
+                            <div class="about-badge">
+                                <i class="fi fi-rs-person-back-pain"></i>
+                                <div>
+                                    <strong>Master Surgeon</strong>
+                                    <span>Pain Care</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="about-content" data-aos="fade-left">
-                    <span class="section-eyebrow">About Pain Management</span>
-                    <h2 class="about-title">Relief That Gets You <span>Moving Again</span></h2>
-                    <p class="about-text">Pain is the body&rsquo;s warning signal, but when it lasts or keeps returning it can affect your sleep, mood, work and relationships. Pain can come from the back, neck, joints, muscles, nerves, or follow an injury or an operation.</p>
-                    <p class="about-text">At Master Surgeon we look for the <strong>cause of your pain</strong> instead of only covering it up. We then build a personalized plan of safe treatment, guided movement and self-care, so you get real relief and can return to the life you enjoy.</p>
+                    <div class="col-12 col-lg-7">
+                        <div class="about-content" data-aos="fade-left">
+                            <span class="section-eyebrow">About Pain Management</span>
+                            <h2 class="about-title">Relief That Gets You <span>Moving Again</span></h2>
+                            <p class="about-text">Pain is the body&rsquo;s warning signal, but when it lasts or keeps returning it can affect your sleep, mood, work and relationships. Pain can come from the back, neck, joints, muscles, nerves, or follow an injury or an operation.</p>
+                            <p class="about-text">At Master Surgeon we look for the <strong>cause of your pain</strong> instead of only covering it up. We then build a personalized plan of safe treatment, guided movement and self-care, so you get real relief and can return to the life you enjoy.</p>
 
-                    <ul class="about-list">
-                        <?php foreach ($data['pain']['goals'] as $goal): ?>
-                            <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                            <ul class="about-list">
+                                <?php foreach ($data['pain']['goals'] as $goal): ?>
+                                    <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
+                                <?php endforeach; ?>
+                            </ul>
 
-                    <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                            <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,11 +76,13 @@
                     <p class="section-subtitle">Do not simply live with pain. If it is persistent, worsening or limiting your life, it deserves proper assessment.</p>
                 </div>
 
-                <div class="why-grid why-grid--3">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['pain']['symptoms'] as $i => $symptom): ?>
-                        <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
-                            <p class="why-card-text"><?= $symptom['label'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
+                                <p class="why-card-text"><?= $symptom['label'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -91,12 +99,14 @@
                     <p class="section-subtitle">The type of pain shapes the treatment, so we start by understanding how long and how severe it has been.</p>
                 </div>
 
-                <div class="why-grid why-grid--2">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['pain']['types'] as $i => $type): ?>
-                        <div class="why-card" data-aos="<?= $i === 0 ? 'fade-right' : 'fade-left' ?>">
-                            <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $type['title'] ?></h3>
-                            <p class="why-card-text"><?= $type['text'] ?></p>
+                        <div class="col-12 col-md-6 col-xl-5">
+                            <div class="why-card" data-aos="<?= $i === 0 ? 'fade-right' : 'fade-left' ?>">
+                                <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $type['title'] ?></h3>
+                                <p class="why-card-text"><?= $type['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -113,12 +123,14 @@
                     <p class="section-subtitle">Each type of pain has different causes, so treatment is tailored to you.</p>
                 </div>
 
-                <div class="why-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['pain']['options'] as $i => $option): ?>
-                        <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 4) * 80 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $option['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $option['title'] ?></h3>
-                            <p class="why-card-text"><?= $option['text'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 4) * 80 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $option['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $option['title'] ?></h3>
+                                <p class="why-card-text"><?= $option['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -135,14 +147,16 @@
                     <p class="section-subtitle">A clear, step-by-step approach that treats the cause and helps you build back your strength.</p>
                 </div>
 
-                <div class="recovery-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['pain']['steps'] as $step): ?>
-                        <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
-                            <span class="recovery-step-number"><?= $step['number'] ?></span>
-                            <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
-                            <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
-                            <p class="recovery-step-text"><?= $step['text'] ?></p>
-                            <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
+                                <span class="recovery-step-number"><?= $step['number'] ?></span>
+                                <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
+                                <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
+                                <p class="recovery-step-text"><?= $step['text'] ?></p>
+                                <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -158,13 +172,17 @@
                     <h2 class="section-title">Pain Management &mdash; Frequently Asked Questions</h2>
                 </div>
 
-                <div class="faq-list">
-                    <?php foreach ($data['pain']['faqs'] as $faq): ?>
-                        <details class="faq-item" data-aos="fade-up">
-                            <summary><?= $faq['q'] ?></summary>
-                            <p><?= $faq['a'] ?></p>
-                        </details>
-                    <?php endforeach; ?>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="faq-list">
+                            <?php foreach ($data['pain']['faqs'] as $faq): ?>
+                                <details class="faq-item" data-aos="fade-up">
+                                    <summary><?= $faq['q'] ?></summary>
+                                    <p><?= $faq['a'] ?></p>
+                                </details>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

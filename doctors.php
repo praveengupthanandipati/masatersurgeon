@@ -38,24 +38,30 @@
 
                 <div class="doctors-list">
                     <?php foreach ($data['doctors'] as $i => $doctor): ?>
-                        <div class="doctor-row" data-aos="fade-up">
-                            <div class="doctor-media">
-                                <div class="doctor-media-frame">
-                                    <img src="<?= $doctor['img'] ?>" alt="<?= $doctor['name'] ?> - <?= $doctor['specialty'] ?>" class="doctor-img">
+                        <div class="doctor-item" data-aos="fade-up">
+                            <div class="row align-items-center g-4 g-lg-5">
+                                <div class="col-12 col-lg-4<?= $i % 2 ? ' order-lg-2' : '' ?>">
+                                    <div class="doctor-media">
+                                        <div class="doctor-media-frame">
+                                            <img src="<?= $doctor['img'] ?>" alt="<?= $doctor['name'] ?> - <?= $doctor['specialty'] ?>" class="doctor-img">
+                                        </div>
+                                        <span class="doctor-badge"><i class="fi <?= $doctor['icon'] ?>"></i></span>
+                                    </div>
                                 </div>
-                                <span class="doctor-badge"><i class="fi <?= $doctor['icon'] ?>"></i></span>
-                            </div>
-                            <div class="doctor-content">
-                                <span class="doctor-eyebrow">Specialist <?= sprintf('%02d', $i + 1) ?></span>
-                                <h3 class="doctor-name"><?= $doctor['name'] ?></h3>
-                                <span class="doctor-specialty"><?= $doctor['specialty'] ?></span>
-                                <p class="doctor-bio"><?= $doctor['bio'] ?></p>
-                                <div class="doctor-tags">
-                                    <?php foreach ($doctor['tags'] as $tag): ?>
-                                        <span class="doctor-tag"><?= $tag ?></span>
-                                    <?php endforeach; ?>
+                                <div class="col-12 col-lg-8">
+                                    <div class="doctor-content">
+                                        <span class="doctor-eyebrow">Specialist <?= sprintf('%02d', $i + 1) ?></span>
+                                        <h3 class="doctor-name"><?= $doctor['name'] ?></h3>
+                                        <span class="doctor-specialty"><?= $doctor['specialty'] ?></span>
+                                        <p class="doctor-bio"><?= $doctor['bio'] ?></p>
+                                        <div class="doctor-tags">
+                                            <?php foreach ($doctor['tags'] as $tag): ?>
+                                                <span class="doctor-tag"><?= $tag ?></span>
+                                            <?php endforeach; ?>
+                                        </div>
+                                        <a href="tel:+919676717852" class="doctor-cta">Book Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                                    </div>
                                 </div>
-                                <a href="tel:+919676717852" class="doctor-cta">Book Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
                             </div>
                         </div>
                     <?php endforeach; ?>

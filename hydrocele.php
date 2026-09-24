@@ -29,33 +29,39 @@
 
         <!-- intro about hydrocele -->
         <section class="about-section">
-            <div class="container-90 about-inner">
-                <div class="about-media" data-aos="fade-right">
-                    <div class="about-media-frame">
-                        <img src="img/slider03.jpg" alt="Hydrocele treatment at Master Surgeon" class="about-img">
-                    </div>
-                    <div class="about-badge">
-                        <i class="fi fi-rs-user-md"></i>
-                        <div>
-                            <strong>Dr. S. Ravi Kumar</strong>
-                            <span>Laparoscopic &amp; Laser Surgeon</span>
+            <div class="container-90">
+                <div class="row align-items-center g-4 g-lg-5 about-row">
+                    <div class="col-12 col-lg-5">
+                        <div class="about-media" data-aos="fade-right">
+                            <div class="about-media-frame">
+                                <img src="img/slider03.jpg" alt="Hydrocele treatment at Master Surgeon" class="about-img">
+                            </div>
+                            <div class="about-badge">
+                                <i class="fi fi-rs-user-md"></i>
+                                <div>
+                                    <strong>Dr. S. Ravi Kumar</strong>
+                                    <span>Laparoscopic &amp; Laser Surgeon</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="about-content" data-aos="fade-left">
-                    <span class="section-eyebrow">About the Condition</span>
-                    <h2 class="about-title">What is a <span>Hydrocele?</span></h2>
-                    <p class="about-text">A hydrocele is a collection of fluid in the thin sac surrounding a testicle, causing swelling of the scrotum. It is common in newborns and in men over 40, and is usually painless. Many people put off getting it checked, but it can grow larger and more uncomfortable with time.</p>
-                    <p class="about-text">Because other conditions such as a hernia, infection or tumour can also cause scrotal swelling, a proper examination and ultrasound are important. When treatment is needed, a short operation called hydrocelectomy is the standard and most reliable solution.</p>
+                    <div class="col-12 col-lg-7">
+                        <div class="about-content" data-aos="fade-left">
+                            <span class="section-eyebrow">About the Condition</span>
+                            <h2 class="about-title">What is a <span>Hydrocele?</span></h2>
+                            <p class="about-text">A hydrocele is a collection of fluid in the thin sac surrounding a testicle, causing swelling of the scrotum. It is common in newborns and in men over 40, and is usually painless. Many people put off getting it checked, but it can grow larger and more uncomfortable with time.</p>
+                            <p class="about-text">Because other conditions such as a hernia, infection or tumour can also cause scrotal swelling, a proper examination and ultrasound are important. When treatment is needed, a short operation called hydrocelectomy is the standard and most reliable solution.</p>
 
-                    <ul class="about-list">
-                        <?php foreach ($data['hydrocele']['goals'] as $goal): ?>
-                            <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                            <ul class="about-list">
+                                <?php foreach ($data['hydrocele']['goals'] as $goal): ?>
+                                    <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
+                                <?php endforeach; ?>
+                            </ul>
 
-                    <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                            <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,11 +76,13 @@
                     <p class="section-subtitle">Most hydroceles cause few problems at first. See a doctor if you notice any of these, and immediately if the swelling is painful or sudden.</p>
                 </div>
 
-                <div class="why-grid why-grid--3">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hydrocele']['symptoms'] as $i => $symptom): ?>
-                        <div class="why-card" data-aos="fade-up" data-aos-delay="<?= ($i % 3) * 60 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
-                            <p class="why-card-text"><?= $symptom['label'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="why-card" data-aos="fade-up" data-aos-delay="<?= ($i % 3) * 60 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
+                                <p class="why-card-text"><?= $symptom['label'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -91,12 +99,14 @@
                     <p class="section-subtitle">Identifying the type helps us choose the safest and most effective treatment.</p>
                 </div>
 
-                <div class="why-grid why-grid--2">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hydrocele']['types'] as $i => $type): ?>
-                        <div class="why-card" data-aos="fade-up" data-aos-delay="<?= $i * 60 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $type['title'] ?></h3>
-                            <p class="why-card-text"><?= $type['text'] ?></p>
+                        <div class="col-12 col-md-6 col-xl-5">
+                            <div class="why-card" data-aos="fade-up" data-aos-delay="<?= $i * 60 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $type['title'] ?></h3>
+                                <p class="why-card-text"><?= $type['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -113,12 +123,14 @@
                     <p class="section-subtitle">The right option depends on the size, type and symptoms &mdash; and your surgeon will explain each clearly.</p>
                 </div>
 
-                <div class="why-grid why-grid--3">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hydrocele']['options'] as $i => $option): ?>
-                        <div class="why-card" data-aos="fade-up" data-aos-delay="<?= $i * 60 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $option['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $option['title'] ?></h3>
-                            <p class="why-card-text"><?= $option['text'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="why-card" data-aos="fade-up" data-aos-delay="<?= $i * 60 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $option['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $option['title'] ?></h3>
+                                <p class="why-card-text"><?= $option['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -135,14 +147,16 @@
                     <p class="section-subtitle">Led by Dr. S. Ravi Kumar, our team offers discreet, respectful care from your first consultation to complete recovery.</p>
                 </div>
 
-                <div class="recovery-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hydrocele']['steps'] as $step): ?>
-                        <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
-                            <span class="recovery-step-number"><?= $step['number'] ?></span>
-                            <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
-                            <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
-                            <p class="recovery-step-text"><?= $step['text'] ?></p>
-                            <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
+                                <span class="recovery-step-number"><?= $step['number'] ?></span>
+                                <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
+                                <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
+                                <p class="recovery-step-text"><?= $step['text'] ?></p>
+                                <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -158,13 +172,17 @@
                     <h2 class="section-title">Hydrocele &mdash; Frequently Asked Questions</h2>
                 </div>
 
-                <div class="faq-list">
-                    <?php foreach ($data['hydrocele']['faqs'] as $faq): ?>
-                        <details class="faq-item" data-aos="fade-up">
-                            <summary><?= $faq['q'] ?></summary>
-                            <p><?= $faq['a'] ?></p>
-                        </details>
-                    <?php endforeach; ?>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="faq-list">
+                            <?php foreach ($data['hydrocele']['faqs'] as $faq): ?>
+                                <details class="faq-item" data-aos="fade-up">
+                                    <summary><?= $faq['q'] ?></summary>
+                                    <p><?= $faq['a'] ?></p>
+                                </details>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

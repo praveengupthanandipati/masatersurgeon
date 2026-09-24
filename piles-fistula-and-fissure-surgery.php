@@ -29,33 +29,39 @@
 
         <!-- intro about piles, fistula & fissure -->
         <section class="about-section">
-            <div class="container-90 about-inner">
-                <div class="about-media" data-aos="fade-right">
-                    <div class="about-media-frame">
-                        <img src="img/slider02.jpg" alt="Piles, fistula and fissure treatment at Master Surgeon" class="about-img" loading="lazy">
-                    </div>
-                    <div class="about-badge">
-                        <i class="fi fi-rs-user-md"></i>
-                        <div>
-                            <strong>Dr. S. Ravi Kumar</strong>
-                            <span>Laparoscopic &amp; Laser Surgeon</span>
+            <div class="container-90">
+                <div class="row align-items-center g-4 g-lg-5 about-row">
+                    <div class="col-12 col-lg-5">
+                        <div class="about-media" data-aos="fade-right">
+                            <div class="about-media-frame">
+                                <img src="img/slider02.jpg" alt="Piles, fistula and fissure treatment at Master Surgeon" class="about-img" loading="lazy">
+                            </div>
+                            <div class="about-badge">
+                                <i class="fi fi-rs-user-md"></i>
+                                <div>
+                                    <strong>Dr. S. Ravi Kumar</strong>
+                                    <span>Laparoscopic &amp; Laser Surgeon</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="about-content" data-aos="fade-left">
-                    <span class="section-eyebrow">About the Conditions</span>
-                    <h2 class="about-title">Piles, Fistula &amp; <span>Fissure</span></h2>
-                    <p class="about-text">Piles, anal fistula and anal fissure are very common problems of the anal region. They can cause pain, bleeding, itching and discharge, yet many people feel embarrassed and delay seeking help, which often lets the problem get worse.</p>
-                    <p class="about-text">The good news is that all three can be treated effectively. Depending on your condition, treatment may involve simple medical care, <strong>laser treatment</strong> or <strong>surgery</strong>. At Master Surgeon we offer a private, respectful consultation and explain every option clearly.</p>
+                    <div class="col-12 col-lg-7">
+                        <div class="about-content" data-aos="fade-left">
+                            <span class="section-eyebrow">About the Conditions</span>
+                            <h2 class="about-title">Piles, Fistula &amp; <span>Fissure</span></h2>
+                            <p class="about-text">Piles, anal fistula and anal fissure are very common problems of the anal region. They can cause pain, bleeding, itching and discharge, yet many people feel embarrassed and delay seeking help, which often lets the problem get worse.</p>
+                            <p class="about-text">The good news is that all three can be treated effectively. Depending on your condition, treatment may involve simple medical care, <strong>laser treatment</strong> or <strong>surgery</strong>. At Master Surgeon we offer a private, respectful consultation and explain every option clearly.</p>
 
-                    <ul class="about-list">
-                        <?php foreach ($data['piles']['goals'] as $goal): ?>
-                            <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                            <ul class="about-list">
+                                <?php foreach ($data['piles']['goals'] as $goal): ?>
+                                    <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
+                                <?php endforeach; ?>
+                            </ul>
 
-                    <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                            <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,11 +76,13 @@
                     <p class="section-subtitle">Bleeding is not always piles. Please have any bleeding, pain or lump near the anus examined instead of treating it on your own.</p>
                 </div>
 
-                <div class="why-grid why-grid--3">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['piles']['symptoms'] as $i => $symptom): ?>
-                        <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
-                            <p class="why-card-text"><?= $symptom['label'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
+                                <p class="why-card-text"><?= $symptom['label'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -91,12 +99,14 @@
                     <p class="section-subtitle">They can feel alike, but each has a different cause and treatment, so an accurate diagnosis matters.</p>
                 </div>
 
-                <div class="why-grid why-grid--3">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['piles']['types'] as $i => $type): ?>
-                        <div class="why-card" data-aos="<?= ['fade-right', 'fade-up', 'fade-left'][$i % 3] ?>">
-                            <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $type['title'] ?></h3>
-                            <p class="why-card-text"><?= $type['text'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="why-card" data-aos="<?= ['fade-right', 'fade-up', 'fade-left'][$i % 3] ?>">
+                                <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $type['title'] ?></h3>
+                                <p class="why-card-text"><?= $type['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -113,12 +123,14 @@
                     <p class="section-subtitle">We start with the simplest effective treatment and advance only when it is needed.</p>
                 </div>
 
-                <div class="why-grid why-grid--3">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['piles']['options'] as $i => $option): ?>
-                        <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $option['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $option['title'] ?></h3>
-                            <p class="why-card-text"><?= $option['text'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $option['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $option['title'] ?></h3>
+                                <p class="why-card-text"><?= $option['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -135,14 +147,16 @@
                     <p class="section-subtitle">Led by Dr. S. Ravi Kumar, our team offers discreet, compassionate care from your first consultation to full recovery.</p>
                 </div>
 
-                <div class="recovery-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['piles']['steps'] as $step): ?>
-                        <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
-                            <span class="recovery-step-number"><?= $step['number'] ?></span>
-                            <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
-                            <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
-                            <p class="recovery-step-text"><?= $step['text'] ?></p>
-                            <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
+                                <span class="recovery-step-number"><?= $step['number'] ?></span>
+                                <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
+                                <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
+                                <p class="recovery-step-text"><?= $step['text'] ?></p>
+                                <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -158,13 +172,17 @@
                     <h2 class="section-title">Piles, Fistula &amp; Fissure &mdash; Frequently Asked Questions</h2>
                 </div>
 
-                <div class="faq-list">
-                    <?php foreach ($data['piles']['faqs'] as $faq): ?>
-                        <details class="faq-item" data-aos="fade-up">
-                            <summary><?= $faq['q'] ?></summary>
-                            <p><?= $faq['a'] ?></p>
-                        </details>
-                    <?php endforeach; ?>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="faq-list">
+                            <?php foreach ($data['piles']['faqs'] as $faq): ?>
+                                <details class="faq-item" data-aos="fade-up">
+                                    <summary><?= $faq['q'] ?></summary>
+                                    <p><?= $faq['a'] ?></p>
+                                </details>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

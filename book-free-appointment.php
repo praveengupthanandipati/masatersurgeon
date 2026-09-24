@@ -55,8 +55,8 @@ $invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid'
         <!-- booking -->
         <section class="appt-section">
             <div class="container-90">
-                <div class="appt-card" data-aos="fade-up">
-                    <aside class="appt-left">
+                <div class="appt-card row g-0" data-aos="fade-up">
+                    <aside class="appt-left col-12 col-lg-6">
                         <span class="appt-pill"><i class="fi fi-rs-shield-check"></i> First consultation is FREE</span>
                         <h2 class="appt-title">Simplifying <em>Surgery</em> Experience</h2>
                         <p class="appt-subtitle">Consult with our expert surgeon for more than <?= count($data['services']) ?> treatment areas.</p>
@@ -81,7 +81,7 @@ $invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid'
                         </div>
                     </aside>
 
-                    <div class="appt-right">
+                    <div class="appt-right col-12 col-lg-6">
                         <h2 class="appt-form-title">Book <span>FREE</span> Doctor Consultation</h2>
                         <p class="appt-form-sub">Share a few details and our care coordinator will call you back.</p>
 
@@ -150,12 +150,14 @@ $invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid'
                     <h2 class="section-title">What to Expect at Your Visit</h2>
                     <p class="section-subtitle">A clear, unhurried conversation so you understand your condition and every option before you decide anything.</p>
                 </div>
-                <div class="appt-expect-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($appt['expect'] as $i => $item): ?>
-                        <div class="appt-expect-card" data-aos="fade-up" data-aos-delay="<?= $i * 80 ?>">
-                            <span class="appt-step-icon"><i class="fi <?= $item['icon'] ?>"></i></span>
-                            <h3><?= $item['title'] ?></h3>
-                            <p><?= $item['text'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="appt-expect-card" data-aos="fade-up" data-aos-delay="<?= $i * 80 ?>">
+                                <span class="appt-step-icon"><i class="fi <?= $item['icon'] ?>"></i></span>
+                                <h3><?= $item['title'] ?></h3>
+                                <p><?= $item['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -166,18 +168,22 @@ $invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid'
         <!-- what to bring -->
         <section class="appt-bring">
             <div class="container-90">
-                <div class="appt-bring-grid">
-                    <div data-aos="fade-right">
-                        <span class="section-eyebrow">Be Prepared</span>
-                        <h2 class="section-title">What to Bring With You</h2>
-                        <p class="section-subtitle">Having these ready helps the surgeon give you faster, more accurate advice. Don&rsquo;t worry if you don&rsquo;t have everything &mdash; you can still book.</p>
-                        <a href="<?= contact_e($info['phone_href']) ?>" class="about-btn"><i class="fi fi-rs-phone-call"></i> Need help? Call <?= contact_e($info['phone_display']) ?></a>
+                <div class="row align-items-center g-4 g-lg-5">
+                    <div class="col-12 col-md-6">
+                        <div data-aos="fade-right">
+                            <span class="section-eyebrow">Be Prepared</span>
+                            <h2 class="section-title">What to Bring With You</h2>
+                            <p class="section-subtitle">Having these ready helps the surgeon give you faster, more accurate advice. Don&rsquo;t worry if you don&rsquo;t have everything &mdash; you can still book.</p>
+                            <a href="<?= contact_e($info['phone_href']) ?>" class="about-btn"><i class="fi fi-rs-phone-call"></i> Need help? Call <?= contact_e($info['phone_display']) ?></a>
+                        </div>
                     </div>
-                    <ul class="appt-checklist" data-aos="fade-left">
-                        <?php foreach ($appt['bring'] as $item): ?>
-                            <li><i class="fi fi-rs-check"></i> <?= $item ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                    <div class="col-12 col-md-6">
+                        <ul class="appt-checklist" data-aos="fade-left">
+                            <?php foreach ($appt['bring'] as $item): ?>
+                                <li><i class="fi fi-rs-check"></i> <?= $item ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -190,13 +196,17 @@ $invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid'
                     <span class="section-eyebrow">Good to Know</span>
                     <h2 class="section-title">Consultation Questions</h2>
                 </div>
-                <div class="faq-list">
-                    <?php foreach ($appt['faqs'] as $faq): ?>
-                        <details class="faq-item" data-aos="fade-up">
-                            <summary><?= $faq['q'] ?></summary>
-                            <p><?= $faq['a'] ?></p>
-                        </details>
-                    <?php endforeach; ?>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="faq-list">
+                            <?php foreach ($appt['faqs'] as $faq): ?>
+                                <details class="faq-item" data-aos="fade-up">
+                                    <summary><?= $faq['q'] ?></summary>
+                                    <p><?= $faq['a'] ?></p>
+                                </details>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

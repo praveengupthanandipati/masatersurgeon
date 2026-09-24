@@ -58,87 +58,91 @@ $invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid'
                     <p class="section-subtitle">Call, message or send us an enquiry and our team will get back to you shortly. Your first consultation is free.</p>
                 </div>
 
-                <div class="contact-grid">
-                    <div class="contact-info" data-aos="fade-right">
-                        <div class="contact-card">
-                            <span class="contact-card-icon"><i class="fi fi-rs-phone-call"></i></span>
-                            <div>
-                                <h3 class="contact-card-title">Phone</h3>
-                                <a href="<?= contact_e($info['phone_href']) ?>"><?= contact_e($info['phone_display']) ?></a>
-                                <a href="<?= contact_e($info['whatsapp_href']) ?>" target="_blank" rel="noopener">Chat on WhatsApp</a>
-                            </div>
-                        </div>
-                        <div class="contact-card">
-                            <span class="contact-card-icon"><i class="fi fi-rs-envelope"></i></span>
-                            <div>
-                                <h3 class="contact-card-title">Email</h3>
-                                <a href="mailto:<?= contact_e($info['email']) ?>"><?= contact_e($info['email']) ?></a>
-                            </div>
-                        </div>
-                        <?php if ($info['address'] !== ''): ?>
+                <div class="row g-4 g-lg-5">
+                    <div class="col-12 col-lg-5">
+                        <div class="contact-info" data-aos="fade-right">
                             <div class="contact-card">
-                                <span class="contact-card-icon"><i class="fi fi-rs-marker"></i></span>
+                                <span class="contact-card-icon"><i class="fi fi-rs-phone-call"></i></span>
                                 <div>
-                                    <h3 class="contact-card-title">Address</h3>
-                                    <p><?= nl2br(contact_e($info['address'])) ?></p>
+                                    <h3 class="contact-card-title">Phone</h3>
+                                    <a href="<?= contact_e($info['phone_href']) ?>"><?= contact_e($info['phone_display']) ?></a>
+                                    <a href="<?= contact_e($info['whatsapp_href']) ?>" target="_blank" rel="noopener">Chat on WhatsApp</a>
                                 </div>
                             </div>
-                        <?php endif; ?>
-                        <div class="contact-card">
-                            <span class="contact-card-icon"><i class="fi fi-rs-clock"></i></span>
-                            <div>
-                                <h3 class="contact-card-title">Working Hours</h3>
-                                <p><?= contact_e($info['hours']) ?></p>
-                                <p>24x7 helpline for emergencies</p>
+                            <div class="contact-card">
+                                <span class="contact-card-icon"><i class="fi fi-rs-envelope"></i></span>
+                                <div>
+                                    <h3 class="contact-card-title">Email</h3>
+                                    <a href="mailto:<?= contact_e($info['email']) ?>"><?= contact_e($info['email']) ?></a>
+                                </div>
+                            </div>
+                            <?php if ($info['address'] !== ''): ?>
+                                <div class="contact-card">
+                                    <span class="contact-card-icon"><i class="fi fi-rs-marker"></i></span>
+                                    <div>
+                                        <h3 class="contact-card-title">Address</h3>
+                                        <p><?= nl2br(contact_e($info['address'])) ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            <div class="contact-card">
+                                <span class="contact-card-icon"><i class="fi fi-rs-clock"></i></span>
+                                <div>
+                                    <h3 class="contact-card-title">Working Hours</h3>
+                                    <p><?= contact_e($info['hours']) ?></p>
+                                    <p>24x7 helpline for emergencies</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="contact-form-wrap" data-aos="fade-left">
-                        <h3 class="contact-form-title">Send Us a Message</h3>
-                        <div id="contactAlert" class="contact-alert<?= $form['status'] ? ' contact-alert-' . $form['status'] : '' ?>" role="alert" aria-live="polite"<?= $form['status'] ? '' : ' hidden' ?>><?= contact_e($form['message']) ?></div>
+                    <div class="col-12 col-lg-7">
+                        <div class="contact-form-wrap" data-aos="fade-left">
+                            <h3 class="contact-form-title">Send Us a Message</h3>
+                            <div id="contactAlert" class="contact-alert<?= $form['status'] ? ' contact-alert-' . $form['status'] : '' ?>" role="alert" aria-live="polite"<?= $form['status'] ? '' : ' hidden' ?>><?= contact_e($form['message']) ?></div>
 
-                        <form id="contactForm" class="contact-form" method="post" action="contact.php" novalidate>
-                            <input type="hidden" name="csrf_token" value="<?= contact_e($_SESSION['contact_csrf']) ?>">
-                            <div class="contact-hp" aria-hidden="true">
-                                <label for="website">Leave this field empty</label>
-                                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-                            </div>
-
-                            <div class="contact-row">
-                                <div class="contact-field">
-                                    <label for="cfName">Full Name <span>*</span></label>
-                                    <input type="text" id="cfName" name="name" class="contact-input<?= $invalid('name') ?>" value="<?= $field('name') ?>" maxlength="80" autocomplete="name" required>
-                                    <small class="contact-error" data-error-for="name"><?= contact_e($err['name'] ?? '') ?></small>
+                            <form id="contactForm" class="contact-form" method="post" action="contact.php" novalidate>
+                                <input type="hidden" name="csrf_token" value="<?= contact_e($_SESSION['contact_csrf']) ?>">
+                                <div class="contact-hp" aria-hidden="true">
+                                    <label for="website">Leave this field empty</label>
+                                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
                                 </div>
-                                <div class="contact-field">
-                                    <label for="cfPhone">Phone Number <span>*</span></label>
-                                    <input type="tel" id="cfPhone" name="phone" class="contact-input<?= $invalid('phone') ?>" value="<?= $field('phone') ?>" maxlength="20" autocomplete="tel" inputmode="tel" required>
-                                    <small class="contact-error" data-error-for="phone"><?= contact_e($err['phone'] ?? '') ?></small>
-                                </div>
-                            </div>
 
-                            <div class="contact-row">
-                                <div class="contact-field">
-                                    <label for="cfEmail">Email Address <span>*</span></label>
-                                    <input type="email" id="cfEmail" name="email" class="contact-input<?= $invalid('email') ?>" value="<?= $field('email') ?>" maxlength="120" autocomplete="email" required>
-                                    <small class="contact-error" data-error-for="email"><?= contact_e($err['email'] ?? '') ?></small>
+                                <div class="row gx-3">
+                                    <div class="contact-field col-12 col-sm-6">
+                                        <label for="cfName">Full Name <span>*</span></label>
+                                        <input type="text" id="cfName" name="name" class="contact-input<?= $invalid('name') ?>" value="<?= $field('name') ?>" maxlength="80" autocomplete="name" required>
+                                        <small class="contact-error" data-error-for="name"><?= contact_e($err['name'] ?? '') ?></small>
+                                    </div>
+                                    <div class="contact-field col-12 col-sm-6">
+                                        <label for="cfPhone">Phone Number <span>*</span></label>
+                                        <input type="tel" id="cfPhone" name="phone" class="contact-input<?= $invalid('phone') ?>" value="<?= $field('phone') ?>" maxlength="20" autocomplete="tel" inputmode="tel" required>
+                                        <small class="contact-error" data-error-for="phone"><?= contact_e($err['phone'] ?? '') ?></small>
+                                    </div>
                                 </div>
-                                <div class="contact-field">
-                                    <label for="cfSubject">Subject <span>*</span></label>
-                                    <input type="text" id="cfSubject" name="subject" class="contact-input<?= $invalid('subject') ?>" value="<?= $field('subject') ?>" maxlength="120" required>
-                                    <small class="contact-error" data-error-for="subject"><?= contact_e($err['subject'] ?? '') ?></small>
+
+                                <div class="row gx-3">
+                                    <div class="contact-field col-12 col-sm-6">
+                                        <label for="cfEmail">Email Address <span>*</span></label>
+                                        <input type="email" id="cfEmail" name="email" class="contact-input<?= $invalid('email') ?>" value="<?= $field('email') ?>" maxlength="120" autocomplete="email" required>
+                                        <small class="contact-error" data-error-for="email"><?= contact_e($err['email'] ?? '') ?></small>
+                                    </div>
+                                    <div class="contact-field col-12 col-sm-6">
+                                        <label for="cfSubject">Subject <span>*</span></label>
+                                        <input type="text" id="cfSubject" name="subject" class="contact-input<?= $invalid('subject') ?>" value="<?= $field('subject') ?>" maxlength="120" required>
+                                        <small class="contact-error" data-error-for="subject"><?= contact_e($err['subject'] ?? '') ?></small>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="contact-field">
-                                <label for="cfMessage">Message <span>*</span></label>
-                                <textarea id="cfMessage" name="message" class="contact-input<?= $invalid('message') ?>" rows="5" maxlength="2000" required><?= $field('message') ?></textarea>
-                                <small class="contact-error" data-error-for="message"><?= contact_e($err['message'] ?? '') ?></small>
-                            </div>
+                                <div class="contact-field">
+                                    <label for="cfMessage">Message <span>*</span></label>
+                                    <textarea id="cfMessage" name="message" class="contact-input<?= $invalid('message') ?>" rows="5" maxlength="2000" required><?= $field('message') ?></textarea>
+                                    <small class="contact-error" data-error-for="message"><?= contact_e($err['message'] ?? '') ?></small>
+                                </div>
 
-                            <button type="submit" class="about-btn contact-submit" id="contactSubmit"><i class="fi fi-rs-paper-plane"></i> Send Message</button>
-                        </form>
+                                <button type="submit" class="about-btn contact-submit" id="contactSubmit"><i class="fi fi-rs-paper-plane"></i> Send Message</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

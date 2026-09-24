@@ -1037,7 +1037,7 @@ return [
     // used on doctors.php
     'doctors' => [
         [
-            'img' => 'img/doctor-ravi-kumar.svg',
+            'img' => 'img/drravi.jpg',
             'icon' => 'fi-rs-scalpel',
             'name' => 'Dr. S. Ravi Kumar',
             'specialty' => 'Laparoscopic &amp; Laser Surgeon',
@@ -1045,7 +1045,7 @@ return [
             'tags' => ['Laparoscopic Surgery', 'Laser Surgery', 'General Surgery'],
         ],
         [
-            'img' => 'img/doctor-sunkara-rajesh.svg',
+            'img' => 'img/drrajesh.jpg',
             'icon' => 'fi-rs-bone',
             'name' => 'Dr. Sunkara Rajesh',
             'specialty' => 'Orthopedic Surgeon',

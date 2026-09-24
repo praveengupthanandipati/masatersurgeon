@@ -37,67 +37,71 @@ $published = '21 September 2026';
         <!-- article -->
         <section class="legal-section">
             <div class="container-90">
-                <article class="legal-card article" data-aos="fade-up">
-                    <img src="<?= $post['img'] ?>" alt="<?= $post['tag'] ?>" class="article-cover">
-                    <div class="article-meta">
-                        <span class="blog-tag"><?= $post['tag'] ?></span>
-                        <span><i class="fi fi-rs-clock"></i> <?= $post['read_time'] ?></span>
-                        <span><i class="fi fi-rs-user-md"></i> By Dr. S. Ravi Kumar&rsquo;s team</span>
-                        <span><i class="fi fi-rs-calendar"></i> <?= $published ?></span>
-                    </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-9">
+                        <article class="legal-card article" data-aos="fade-up">
+                            <img src="<?= $post['img'] ?>" alt="<?= $post['tag'] ?>" class="article-cover">
+                            <div class="article-meta">
+                                <span class="blog-tag"><?= $post['tag'] ?></span>
+                                <span><i class="fi fi-rs-clock"></i> <?= $post['read_time'] ?></span>
+                                <span><i class="fi fi-rs-user-md"></i> By Dr. S. Ravi Kumar&rsquo;s team</span>
+                                <span><i class="fi fi-rs-calendar"></i> <?= $published ?></span>
+                            </div>
 
-                    <p class="legal-intro">Piles, fissures and fistulas are very common, yet many people suffer in silence because of embarrassment and half-truths. Waiting, or trying the wrong remedy, often makes things worse. Here are the most common myths, and what is actually true.</p>
+                            <p class="legal-intro">Piles, fissures and fistulas are very common, yet many people suffer in silence because of embarrassment and half-truths. Waiting, or trying the wrong remedy, often makes things worse. Here are the most common myths, and what is actually true.</p>
 
-                    <h2>First, what are they?</h2>
-                    <ul>
-                        <li><strong>Piles (haemorrhoids)</strong> are swollen cushions of tissue and veins in the anal canal. They can cause bleeding, itching, a lump or discomfort.</li>
-                        <li><strong>Fissure</strong> is a small tear in the lining of the anus. It causes sharp pain during and after passing stool, sometimes with a little bright red blood.</li>
-                        <li><strong>Fistula</strong> is an abnormal small tunnel between the inside of the anus and the skin around it, usually after an abscess. It causes pain, swelling and repeated discharge of pus.</li>
-                    </ul>
+                            <h2>First, what are they?</h2>
+                            <ul>
+                                <li><strong>Piles (haemorrhoids)</strong> are swollen cushions of tissue and veins in the anal canal. They can cause bleeding, itching, a lump or discomfort.</li>
+                                <li><strong>Fissure</strong> is a small tear in the lining of the anus. It causes sharp pain during and after passing stool, sometimes with a little bright red blood.</li>
+                                <li><strong>Fistula</strong> is an abnormal small tunnel between the inside of the anus and the skin around it, usually after an abscess. It causes pain, swelling and repeated discharge of pus.</li>
+                            </ul>
 
-                    <h2>Myths vs. facts</h2>
-                    <div class="article-myth">
-                        <h3>Myth 1: &ldquo;They are all the same problem.&rdquo;</h3>
-                        <p><span class="mf-tag">Fact</span> They look alike from the outside, but each has a different cause and needs a different treatment. Only an examination can tell which one you have.</p>
-                    </div>
-                    <div class="article-myth">
-                        <h3>Myth 2: &ldquo;Spicy food causes piles.&rdquo;</h3>
-                        <p><span class="mf-tag">Fact</span> The real causes are constipation, straining, sitting for long on the toilet, low fibre and too little water. Pregnancy, obesity and long hours of sitting also play a part. Spicy food may irritate the area, but it is not the root cause.</p>
-                    </div>
-                    <div class="article-myth">
-                        <h3>Myth 3: &ldquo;Piles or fissure always mean surgery.&rdquo;</h3>
-                        <p><span class="mf-tag">Fact</span> Many early piles and fresh fissures settle with more fibre and water, better toilet habits and prescribed creams or medicines. Procedures or surgery are advised when symptoms persist or the problem is advanced.</p>
-                    </div>
-                    <div class="article-myth">
-                        <h3>Myth 4: &ldquo;Bleeding from the bottom is always just piles.&rdquo;</h3>
-                        <p><span class="mf-tag">Fact</span> Piles are a common cause, but bleeding can also come from other conditions, including problems in the colon or rectum. Do not self-diagnose. See a doctor if bleeding keeps happening, if your bowel habits change, or if you are over 40.</p>
-                    </div>
-                    <div class="article-myth">
-                        <h3>Myth 5: &ldquo;A fistula will heal on its own or with ointments.&rdquo;</h3>
-                        <p><span class="mf-tag">Fact</span> An established anal fistula rarely heals by itself, and creams only ease symptoms. It usually needs surgical treatment. A painful swelling near the anus may be an abscess that needs prompt drainage.</p>
-                    </div>
-                    <div class="article-myth">
-                        <h3>Myth 6: &ldquo;Treatment is painful and means a long hospital stay.&rdquo;</h3>
-                        <p><span class="mf-tag">Fact</span> Modern methods, including laser treatment, are often done as day-care procedures with less discomfort and a quicker return to routine. Your surgeon will explain what suits your case.</p>
-                    </div>
+                            <h2>Myths vs. facts</h2>
+                            <div class="article-myth">
+                                <h3>Myth 1: &ldquo;They are all the same problem.&rdquo;</h3>
+                                <p><span class="mf-tag">Fact</span> They look alike from the outside, but each has a different cause and needs a different treatment. Only an examination can tell which one you have.</p>
+                            </div>
+                            <div class="article-myth">
+                                <h3>Myth 2: &ldquo;Spicy food causes piles.&rdquo;</h3>
+                                <p><span class="mf-tag">Fact</span> The real causes are constipation, straining, sitting for long on the toilet, low fibre and too little water. Pregnancy, obesity and long hours of sitting also play a part. Spicy food may irritate the area, but it is not the root cause.</p>
+                            </div>
+                            <div class="article-myth">
+                                <h3>Myth 3: &ldquo;Piles or fissure always mean surgery.&rdquo;</h3>
+                                <p><span class="mf-tag">Fact</span> Many early piles and fresh fissures settle with more fibre and water, better toilet habits and prescribed creams or medicines. Procedures or surgery are advised when symptoms persist or the problem is advanced.</p>
+                            </div>
+                            <div class="article-myth">
+                                <h3>Myth 4: &ldquo;Bleeding from the bottom is always just piles.&rdquo;</h3>
+                                <p><span class="mf-tag">Fact</span> Piles are a common cause, but bleeding can also come from other conditions, including problems in the colon or rectum. Do not self-diagnose. See a doctor if bleeding keeps happening, if your bowel habits change, or if you are over 40.</p>
+                            </div>
+                            <div class="article-myth">
+                                <h3>Myth 5: &ldquo;A fistula will heal on its own or with ointments.&rdquo;</h3>
+                                <p><span class="mf-tag">Fact</span> An established anal fistula rarely heals by itself, and creams only ease symptoms. It usually needs surgical treatment. A painful swelling near the anus may be an abscess that needs prompt drainage.</p>
+                            </div>
+                            <div class="article-myth">
+                                <h3>Myth 6: &ldquo;Treatment is painful and means a long hospital stay.&rdquo;</h3>
+                                <p><span class="mf-tag">Fact</span> Modern methods, including laser treatment, are often done as day-care procedures with less discomfort and a quicker return to routine. Your surgeon will explain what suits your case.</p>
+                            </div>
 
-                    <h2>Simple habits that help</h2>
-                    <ul>
-                        <li>Eat plenty of fibre: vegetables, fruit, whole grains and pulses.</li>
-                        <li>Drink enough water through the day.</li>
-                        <li>Do not strain, and avoid sitting on the toilet for long.</li>
-                        <li>Stay active, and do not ignore the urge to go.</li>
-                    </ul>
-                    <p>See a surgeon if you have bleeding, ongoing pain, a lump, swelling, or pus or discharge near the anus. Examinations are private and respectful, and early treatment is simpler.</p>
+                            <h2>Simple habits that help</h2>
+                            <ul>
+                                <li>Eat plenty of fibre: vegetables, fruit, whole grains and pulses.</li>
+                                <li>Drink enough water through the day.</li>
+                                <li>Do not strain, and avoid sitting on the toilet for long.</li>
+                                <li>Stay active, and do not ignore the urge to go.</li>
+                            </ul>
+                            <p>See a surgeon if you have bleeding, ongoing pain, a lump, swelling, or pus or discharge near the anus. Examinations are private and respectful, and early treatment is simpler.</p>
 
-                    <div class="article-cta">
-                        <h3>Don&rsquo;t suffer in silence</h3>
-                        <p>Book a free consultation with Dr. S. Ravi Kumar for private, expert advice on piles, fistula and fissure.</p>
-                        <a href="book-free-appointment.php" class="about-btn">Book Free Consultation <i class="fi fi-rs-arrow-small-right"></i></a>
+                            <div class="article-cta">
+                                <h3>Don&rsquo;t suffer in silence</h3>
+                                <p>Book a free consultation with Dr. S. Ravi Kumar for private, expert advice on piles, fistula and fissure.</p>
+                                <a href="book-free-appointment.php" class="about-btn">Book Free Consultation <i class="fi fi-rs-arrow-small-right"></i></a>
+                            </div>
+
+                            <p class="article-note">This article is for general information only and is not a substitute for medical advice. Please consult a doctor about your own condition. Read more about our <a href="piles-fistula-and-fissure-surgery.php">piles, fistula and fissure treatment</a>.</p>
+                        </article>
                     </div>
-
-                    <p class="article-note">This article is for general information only and is not a substitute for medical advice. Please consult a doctor about your own condition. Read more about our <a href="piles-fistula-and-fissure-surgery.php">piles, fistula and fissure treatment</a>.</p>
-                </article>
+                </div>
             </div>
         </section>
         <!--/ article -->

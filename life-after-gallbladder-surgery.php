@@ -37,63 +37,67 @@ $published = '21 September 2026';
         <!-- article -->
         <section class="legal-section">
             <div class="container-90">
-                <article class="legal-card article" data-aos="fade-up">
-                    <img src="<?= $post['img'] ?>" alt="<?= $post['tag'] ?>" class="article-cover">
-                    <div class="article-meta">
-                        <span class="blog-tag"><?= $post['tag'] ?></span>
-                        <span><i class="fi fi-rs-clock"></i> <?= $post['read_time'] ?></span>
-                        <span><i class="fi fi-rs-user-md"></i> By Dr. S. Ravi Kumar&rsquo;s team</span>
-                        <span><i class="fi fi-rs-calendar"></i> <?= $published ?></span>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-9">
+                        <article class="legal-card article" data-aos="fade-up">
+                            <img src="<?= $post['img'] ?>" alt="<?= $post['tag'] ?>" class="article-cover">
+                            <div class="article-meta">
+                                <span class="blog-tag"><?= $post['tag'] ?></span>
+                                <span><i class="fi fi-rs-clock"></i> <?= $post['read_time'] ?></span>
+                                <span><i class="fi fi-rs-user-md"></i> By Dr. S. Ravi Kumar&rsquo;s team</span>
+                                <span><i class="fi fi-rs-calendar"></i> <?= $published ?></span>
+                            </div>
+
+                            <p class="legal-intro">Gallbladder removal (cholecystectomy) is one of the most common operations, and most people go on to live completely normally afterwards. Knowing what the first few weeks look like helps you plan your recovery and feel more at ease.</p>
+
+                            <h2>Can I live normally without a gallbladder?</h2>
+                            <p>Yes. The gallbladder only stores bile, which helps digest fat. Your liver keeps making bile, and it now flows directly into the intestine. Most people digest food normally, though your body may need a little time to adjust.</p>
+
+                            <h2>Your recovery timeline</h2>
+                            <div class="article-table-wrap">
+                                <table class="article-compare">
+                                    <thead>
+                                        <tr><th>When</th><th>What to expect</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>First 1&ndash;2 days</td><td>After keyhole surgery, many people go home within a day or two. Expect mild soreness at the small cuts.</td></tr>
+                                        <tr><td>First week</td><td>Walk a little every day. Some feel bloated or have shoulder-tip pain from the gas used during surgery; it fades in a few days.</td></tr>
+                                        <tr><td>Weeks 2&ndash;4</td><td>Energy returns. Many people go back to desk work, but avoid heavy lifting and hard exercise until your surgeon says it is safe.</td></tr>
+                                        <tr><td>Weeks 4&ndash;6</td><td>Most return to full activity. Open surgery, or a complicated case, may take longer.</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>Your own timeline depends on your health and the type of surgery, so follow your surgeon&rsquo;s advice.</p>
+
+                            <h2>Eating after gallbladder surgery</h2>
+                            <ul>
+                                <li>Start with light, low-fat meals such as soups, dal, rice, fruit and idli.</li>
+                                <li>Eat smaller meals more often instead of a few large ones.</li>
+                                <li>Bring back fried, oily and rich foods slowly, one at a time, to see how you feel.</li>
+                                <li>Add fibre gradually and drink plenty of water.</li>
+                                <li>Loose stools or bloating for a few weeks can happen and usually settle. Tell your doctor if they continue.</li>
+                            </ul>
+
+                            <h2>Caring for yourself at home</h2>
+                            <ul>
+                                <li>Keep the wounds clean and dry as advised, and do not pick at the dressings.</li>
+                                <li>Take medicines exactly as prescribed, and rest when you feel tired.</li>
+                                <li>Do not lift heavy weights or strain until you are cleared.</li>
+                            </ul>
+
+                            <h2>When to call your doctor</h2>
+                            <p>Get in touch straight away if you have fever, severe or worsening belly pain, repeated vomiting, yellowing of the skin or eyes, or redness, swelling or pus at a wound. For urgent problems, call our 24x7 helpline on <a href="<?= htmlspecialchars($info['phone_href']) ?>"><?= htmlspecialchars($info['phone_display']) ?></a>.</p>
+
+                            <div class="article-cta">
+                                <h3>Have gallstones or planning surgery?</h3>
+                                <p>Book a free consultation with Dr. S. Ravi Kumar to understand your options and what recovery will look like for you.</p>
+                                <a href="book-free-appointment.php" class="about-btn">Book Free Consultation <i class="fi fi-rs-arrow-small-right"></i></a>
+                            </div>
+
+                            <p class="article-note">This article is for general information only and is not a substitute for medical advice. Please consult a doctor about your own condition. Read more about our <a href="cholecystectomy-open-laparoscopy.php">gallbladder surgery</a>.</p>
+                        </article>
                     </div>
-
-                    <p class="legal-intro">Gallbladder removal (cholecystectomy) is one of the most common operations, and most people go on to live completely normally afterwards. Knowing what the first few weeks look like helps you plan your recovery and feel more at ease.</p>
-
-                    <h2>Can I live normally without a gallbladder?</h2>
-                    <p>Yes. The gallbladder only stores bile, which helps digest fat. Your liver keeps making bile, and it now flows directly into the intestine. Most people digest food normally, though your body may need a little time to adjust.</p>
-
-                    <h2>Your recovery timeline</h2>
-                    <div class="article-table-wrap">
-                        <table class="article-compare">
-                            <thead>
-                                <tr><th>When</th><th>What to expect</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>First 1&ndash;2 days</td><td>After keyhole surgery, many people go home within a day or two. Expect mild soreness at the small cuts.</td></tr>
-                                <tr><td>First week</td><td>Walk a little every day. Some feel bloated or have shoulder-tip pain from the gas used during surgery; it fades in a few days.</td></tr>
-                                <tr><td>Weeks 2&ndash;4</td><td>Energy returns. Many people go back to desk work, but avoid heavy lifting and hard exercise until your surgeon says it is safe.</td></tr>
-                                <tr><td>Weeks 4&ndash;6</td><td>Most return to full activity. Open surgery, or a complicated case, may take longer.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p>Your own timeline depends on your health and the type of surgery, so follow your surgeon&rsquo;s advice.</p>
-
-                    <h2>Eating after gallbladder surgery</h2>
-                    <ul>
-                        <li>Start with light, low-fat meals such as soups, dal, rice, fruit and idli.</li>
-                        <li>Eat smaller meals more often instead of a few large ones.</li>
-                        <li>Bring back fried, oily and rich foods slowly, one at a time, to see how you feel.</li>
-                        <li>Add fibre gradually and drink plenty of water.</li>
-                        <li>Loose stools or bloating for a few weeks can happen and usually settle. Tell your doctor if they continue.</li>
-                    </ul>
-
-                    <h2>Caring for yourself at home</h2>
-                    <ul>
-                        <li>Keep the wounds clean and dry as advised, and do not pick at the dressings.</li>
-                        <li>Take medicines exactly as prescribed, and rest when you feel tired.</li>
-                        <li>Do not lift heavy weights or strain until you are cleared.</li>
-                    </ul>
-
-                    <h2>When to call your doctor</h2>
-                    <p>Get in touch straight away if you have fever, severe or worsening belly pain, repeated vomiting, yellowing of the skin or eyes, or redness, swelling or pus at a wound. For urgent problems, call our 24x7 helpline on <a href="<?= htmlspecialchars($info['phone_href']) ?>"><?= htmlspecialchars($info['phone_display']) ?></a>.</p>
-
-                    <div class="article-cta">
-                        <h3>Have gallstones or planning surgery?</h3>
-                        <p>Book a free consultation with Dr. S. Ravi Kumar to understand your options and what recovery will look like for you.</p>
-                        <a href="book-free-appointment.php" class="about-btn">Book Free Consultation <i class="fi fi-rs-arrow-small-right"></i></a>
-                    </div>
-
-                    <p class="article-note">This article is for general information only and is not a substitute for medical advice. Please consult a doctor about your own condition. Read more about our <a href="cholecystectomy-open-laparoscopy.php">gallbladder surgery</a>.</p>
-                </article>
+                </div>
             </div>
         </section>
         <!--/ article -->

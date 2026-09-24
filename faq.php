@@ -46,13 +46,17 @@
                 <?php foreach ($data['faq_groups'] as $group): ?>
                     <div class="faq-group" id="faq-<?= $group['id'] ?>">
                         <h3 class="faq-group-title" data-aos="fade-up"><i class="fi <?= $group['icon'] ?>"></i> <?= $group['title'] ?></h3>
-                        <div class="faq-list">
-                            <?php foreach ($group['items'] as $faq): ?>
-                                <details class="faq-item" data-aos="fade-up">
-                                    <summary><?= $faq['q'] ?></summary>
-                                    <p><?= $faq['a'] ?></p>
-                                </details>
-                            <?php endforeach; ?>
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-lg-10 col-xl-8">
+                                <div class="faq-list">
+                                    <?php foreach ($group['items'] as $faq): ?>
+                                        <details class="faq-item" data-aos="fade-up">
+                                            <summary><?= $faq['q'] ?></summary>
+                                            <p><?= $faq['a'] ?></p>
+                                        </details>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>

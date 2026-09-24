@@ -2812,7 +2812,8 @@ textarea.contact-input {
   width: 1px;
   height: 1px;
   overflow: hidden;
-}/*# sourceMappingURL=style.css.map */
+}
+
 .appt-section {
   padding: 4rem 0;
   background: radial-gradient(circle at 10% 0%, rgba(41, 185, 154, 0.18), transparent 45%), linear-gradient(180deg, #eaf6f1 0%, #e7eefa 100%);
@@ -2939,6 +2940,10 @@ textarea.contact-input {
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.9);
   transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
 }
 .appt-steps li:hover {
   background: rgba(255, 255, 255, 0.13);
@@ -3053,7 +3058,9 @@ textarea.contact-input {
 }
 
 .appt-right select.contact-input {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2329b99a' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
@@ -3308,7 +3315,8 @@ textarea.contact-input {
 .article-cover {
   width: 100%;
   height: 300px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 14px;
   margin-bottom: 1.25rem;
 }
@@ -3387,7 +3395,9 @@ textarea.contact-input {
 .article-cta p {
   color: rgba(255, 255, 255, 0.8);
 }
-.article-cta .about-btn, .article-cta .about-btn:hover, .article-cta .about-btn:focus {
+.article-cta .about-btn,
+.article-cta .about-btn:hover,
+.article-cta .about-btn:focus {
   color: #fff;
 }
 .article-cta .about-btn:hover {
@@ -3512,6 +3522,10 @@ textarea.contact-input {
     line-height: 1;
     color: #29b99a;
     transition: transform 0.25s ease;
+    -moz-transition: transform 0.25s ease;
+    -webkit-transition: transform 0.25s ease;
+    -ms-transition: transform 0.25s ease;
+    -o-transition: transform 0.25s ease;
   }
   .site-footer.acc-ready .footer-acc.is-open .footer-acc-btn i {
     transform: rotate(180deg);
@@ -3524,7 +3538,6 @@ textarea.contact-input {
     display: flex;
   }
 }
-
 .ss-native {
   position: absolute !important;
   left: 0;
@@ -3544,7 +3557,9 @@ textarea.contact-input {
   justify-content: space-between;
   text-align: left;
   cursor: pointer;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   padding-right: 2.4rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2329b99a' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -3631,4 +3646,45 @@ textarea.contact-input {
 }
 .ss-empty[hidden] {
   display: none;
+}/*# sourceMappingURL=style.css.map */
+.appt-card.row {
+  display: flex;
+  grid-template-columns: none;
+}
+
+.row-cards > [class*=col] > * {
+  height: 100%;
+}
+
+.about-row {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 991.98px) {
+  .about-row {
+    text-align: center;
+  }
+  .about-row .about-media {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.doctor-item {
+  padding: 3.5rem 0;
+}
+.doctor-item:not(:last-child) {
+  border-bottom: 1px solid #ececec;
+}
+.doctor-item:nth-child(even) .doctor-badge {
+  background: #00291d;
+}
+@media (max-width: 991.98px) {
+  .doctor-item {
+    padding: 2.75rem 0;
+    text-align: center;
+  }
+  .doctor-item .doctor-media {
+    margin: 0 auto;
+  }
 }

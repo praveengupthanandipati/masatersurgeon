@@ -37,58 +37,62 @@ $published = '21 September 2026';
         <!-- article -->
         <section class="legal-section">
             <div class="container-90">
-                <article class="legal-card article" data-aos="fade-up">
-                    <img src="<?= $post['img'] ?>" alt="<?= $post['tag'] ?>" class="article-cover">
-                    <div class="article-meta">
-                        <span class="blog-tag"><?= $post['tag'] ?></span>
-                        <span><i class="fi fi-rs-clock"></i> <?= $post['read_time'] ?></span>
-                        <span><i class="fi fi-rs-user-md"></i> By Dr. S. Ravi Kumar&rsquo;s team</span>
-                        <span><i class="fi fi-rs-calendar"></i> <?= $published ?></span>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-9">
+                        <article class="legal-card article" data-aos="fade-up">
+                            <img src="<?= $post['img'] ?>" alt="<?= $post['tag'] ?>" class="article-cover">
+                            <div class="article-meta">
+                                <span class="blog-tag"><?= $post['tag'] ?></span>
+                                <span><i class="fi fi-rs-clock"></i> <?= $post['read_time'] ?></span>
+                                <span><i class="fi fi-rs-user-md"></i> By Dr. S. Ravi Kumar&rsquo;s team</span>
+                                <span><i class="fi fi-rs-calendar"></i> <?= $published ?></span>
+                            </div>
+
+                            <p class="legal-intro">If your surgeon has said you need an operation, one of the first questions is usually whether it will be done the &ldquo;open&rdquo; way or by &ldquo;laparoscopy&rdquo;. Both are proven, safe techniques. The difference lies in how the surgeon reaches the problem, and that shapes your pain, hospital stay and recovery.</p>
+
+                            <h2>Two ways to reach the same problem</h2>
+                            <h3>Open surgery</h3>
+                            <p>The surgeon makes a single, larger cut over the area being treated and works directly with their hands and instruments. It is the traditional approach, used for centuries, and it gives a wide, direct view and feel of the tissues.</p>
+                            <h3>Laparoscopic (keyhole) surgery</h3>
+                            <p>The surgeon makes a few small cuts, usually around 0.5 to 1 cm. A thin tube with a camera (the laparoscope) shows the inside of the body on a screen, and slim instruments are passed through the other cuts. Surgery is done by watching the magnified image.</p>
+
+                            <h2>A brief history</h2>
+                            <p>Open surgery is as old as medicine itself. Looking inside the body through a small opening began in the early 1900s, and by the 1980s cameras and better instruments made keyhole operations practical. The first laparoscopic gallbladder removal in 1987 changed general surgery, and through the 1990s the technique spread to hernia, appendix and gynaecological surgery. Laser tools and high-definition cameras have improved it further since.</p>
+
+                            <h2>How they compare</h2>
+                            <div class="article-table-wrap">
+                                <table class="article-compare">
+                                    <thead>
+                                        <tr><th></th><th>Laparoscopic</th><th>Open</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Cut size</td><td>A few small cuts</td><td>One larger cut</td></tr>
+                                        <tr><td>Pain after surgery</td><td>Usually less</td><td>Usually more</td></tr>
+                                        <tr><td>Hospital stay</td><td>Often shorter</td><td>Often longer</td></tr>
+                                        <tr><td>Return to routine</td><td>Usually faster</td><td>Usually slower</td></tr>
+                                        <tr><td>Scarring</td><td>Small marks</td><td>A longer scar</td></tr>
+                                        <tr><td>Surgeon&rsquo;s view</td><td>Magnified, on screen</td><td>Direct, with touch</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>These are general patterns. Your own recovery depends on your health, the condition being treated and the size of the operation.</p>
+
+                            <h2>When open surgery is still the better choice</h2>
+                            <p>Keyhole surgery is not right for everyone. Your surgeon may advise open surgery for an emergency, a very large or complicated problem, heavy scarring from earlier operations, or certain health conditions. Sometimes a laparoscopic operation is converted to open during surgery for safety. That is a careful decision, not a failure.</p>
+
+                            <h2>So which one should you choose?</h2>
+                            <p>There is no single best answer. The right choice depends on your condition, your health and your surgeon&rsquo;s experience. At Master Surgeon, Dr. S. Ravi Kumar offers both approaches for conditions such as hernia, gallbladder stones, appendicitis and hysterectomy, and will explain the options honestly before you decide.</p>
+
+                            <div class="article-cta">
+                                <h3>Unsure which option suits you?</h3>
+                                <p>Book a free consultation and get clear advice on the safest technique for your case.</p>
+                                <a href="book-free-appointment.php" class="about-btn">Book Free Consultation <i class="fi fi-rs-arrow-small-right"></i></a>
+                            </div>
+
+                            <p class="article-note">This article is for general information only and is not a substitute for medical advice. Please consult a doctor about your own condition.</p>
+                        </article>
                     </div>
-
-                    <p class="legal-intro">If your surgeon has said you need an operation, one of the first questions is usually whether it will be done the &ldquo;open&rdquo; way or by &ldquo;laparoscopy&rdquo;. Both are proven, safe techniques. The difference lies in how the surgeon reaches the problem, and that shapes your pain, hospital stay and recovery.</p>
-
-                    <h2>Two ways to reach the same problem</h2>
-                    <h3>Open surgery</h3>
-                    <p>The surgeon makes a single, larger cut over the area being treated and works directly with their hands and instruments. It is the traditional approach, used for centuries, and it gives a wide, direct view and feel of the tissues.</p>
-                    <h3>Laparoscopic (keyhole) surgery</h3>
-                    <p>The surgeon makes a few small cuts, usually around 0.5 to 1 cm. A thin tube with a camera (the laparoscope) shows the inside of the body on a screen, and slim instruments are passed through the other cuts. Surgery is done by watching the magnified image.</p>
-
-                    <h2>A brief history</h2>
-                    <p>Open surgery is as old as medicine itself. Looking inside the body through a small opening began in the early 1900s, and by the 1980s cameras and better instruments made keyhole operations practical. The first laparoscopic gallbladder removal in 1987 changed general surgery, and through the 1990s the technique spread to hernia, appendix and gynaecological surgery. Laser tools and high-definition cameras have improved it further since.</p>
-
-                    <h2>How they compare</h2>
-                    <div class="article-table-wrap">
-                        <table class="article-compare">
-                            <thead>
-                                <tr><th></th><th>Laparoscopic</th><th>Open</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Cut size</td><td>A few small cuts</td><td>One larger cut</td></tr>
-                                <tr><td>Pain after surgery</td><td>Usually less</td><td>Usually more</td></tr>
-                                <tr><td>Hospital stay</td><td>Often shorter</td><td>Often longer</td></tr>
-                                <tr><td>Return to routine</td><td>Usually faster</td><td>Usually slower</td></tr>
-                                <tr><td>Scarring</td><td>Small marks</td><td>A longer scar</td></tr>
-                                <tr><td>Surgeon&rsquo;s view</td><td>Magnified, on screen</td><td>Direct, with touch</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p>These are general patterns. Your own recovery depends on your health, the condition being treated and the size of the operation.</p>
-
-                    <h2>When open surgery is still the better choice</h2>
-                    <p>Keyhole surgery is not right for everyone. Your surgeon may advise open surgery for an emergency, a very large or complicated problem, heavy scarring from earlier operations, or certain health conditions. Sometimes a laparoscopic operation is converted to open during surgery for safety. That is a careful decision, not a failure.</p>
-
-                    <h2>So which one should you choose?</h2>
-                    <p>There is no single best answer. The right choice depends on your condition, your health and your surgeon&rsquo;s experience. At Master Surgeon, Dr. S. Ravi Kumar offers both approaches for conditions such as hernia, gallbladder stones, appendicitis and hysterectomy, and will explain the options honestly before you decide.</p>
-
-                    <div class="article-cta">
-                        <h3>Unsure which option suits you?</h3>
-                        <p>Book a free consultation and get clear advice on the safest technique for your case.</p>
-                        <a href="book-free-appointment.php" class="about-btn">Book Free Consultation <i class="fi fi-rs-arrow-small-right"></i></a>
-                    </div>
-
-                    <p class="article-note">This article is for general information only and is not a substitute for medical advice. Please consult a doctor about your own condition.</p>
-                </article>
+                </div>
             </div>
         </section>
         <!--/ article -->

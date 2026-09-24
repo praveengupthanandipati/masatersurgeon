@@ -37,69 +37,73 @@ $published = '21 September 2026';
         <!-- article -->
         <section class="legal-section">
             <div class="container-90">
-                <article class="legal-card article" data-aos="fade-up">
-                    <img src="<?= $post['img'] ?>" alt="<?= $post['tag'] ?>" class="article-cover">
-                    <div class="article-meta">
-                        <span class="blog-tag"><?= $post['tag'] ?></span>
-                        <span><i class="fi fi-rs-clock"></i> <?= $post['read_time'] ?></span>
-                        <span><i class="fi fi-rs-user-md"></i> By Dr. S. Ravi Kumar&rsquo;s team</span>
-                        <span><i class="fi fi-rs-calendar"></i> <?= $published ?></span>
-                    </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-9">
+                        <article class="legal-card article" data-aos="fade-up">
+                            <img src="<?= $post['img'] ?>" alt="<?= $post['tag'] ?>" class="article-cover">
+                            <div class="article-meta">
+                                <span class="blog-tag"><?= $post['tag'] ?></span>
+                                <span><i class="fi fi-rs-clock"></i> <?= $post['read_time'] ?></span>
+                                <span><i class="fi fi-rs-user-md"></i> By Dr. S. Ravi Kumar&rsquo;s team</span>
+                                <span><i class="fi fi-rs-calendar"></i> <?= $published ?></span>
+                            </div>
 
-                    <p class="legal-intro">A hernia happens when an organ or fatty tissue pushes through a weak spot in the muscle wall that normally holds it in. It is most common in the groin, around the belly button, and at the site of an earlier surgical scar. Many people live with one for months without knowing what it is, so it helps to recognise the signs early.</p>
+                            <p class="legal-intro">A hernia happens when an organ or fatty tissue pushes through a weak spot in the muscle wall that normally holds it in. It is most common in the groin, around the belly button, and at the site of an earlier surgical scar. Many people live with one for months without knowing what it is, so it helps to recognise the signs early.</p>
 
-                    <h2>A short history of hernia treatment</h2>
-                    <p>Hernias are among the oldest recorded medical problems. The Ebers Papyrus of ancient Egypt, written around 1500 BC, describes groin swellings, and Greek and Roman physicians such as Hippocrates and Celsus wrote about hernias and early, often risky, attempts to treat them.</p>
-                    <p>Modern hernia surgery began in the 1880s, when Italian surgeon Edoardo Bassini introduced a repair that rebuilt the weak groin wall and sharply reduced the chance of the hernia returning. In the 1980s, Irving Lichtenstein popularised the &ldquo;tension-free&rdquo; mesh repair, which made recurrence rarer and recovery easier. From the early 1990s, laparoscopic (keyhole) repair added smaller cuts, less pain and a faster return to normal routine. Today surgeons can choose between open and laparoscopic techniques to suit each patient.</p>
+                            <h2>A short history of hernia treatment</h2>
+                            <p>Hernias are among the oldest recorded medical problems. The Ebers Papyrus of ancient Egypt, written around 1500 BC, describes groin swellings, and Greek and Roman physicians such as Hippocrates and Celsus wrote about hernias and early, often risky, attempts to treat them.</p>
+                            <p>Modern hernia surgery began in the 1880s, when Italian surgeon Edoardo Bassini introduced a repair that rebuilt the weak groin wall and sharply reduced the chance of the hernia returning. In the 1980s, Irving Lichtenstein popularised the &ldquo;tension-free&rdquo; mesh repair, which made recurrence rarer and recovery easier. From the early 1990s, laparoscopic (keyhole) repair added smaller cuts, less pain and a faster return to normal routine. Today surgeons can choose between open and laparoscopic techniques to suit each patient.</p>
 
-                    <h2>5 signs you might need hernia surgery</h2>
-                    <div class="article-sign">
-                        <span class="article-sign-num">1</span>
-                        <div>
-                            <h3>A bulge you can see or feel</h3>
-                            <p>A lump in the groin, near the belly button or over an old scar is the classic sign. It often shows when you stand, cough or lift, and may disappear when you lie down. A hernia does not heal on its own, so any new bulge deserves an examination.</p>
-                        </div>
-                    </div>
-                    <div class="article-sign">
-                        <span class="article-sign-num">2</span>
-                        <div>
-                            <h3>Pain, burning or a heavy, dragging feeling</h3>
-                            <p>A dull ache, pulling or burning at the site, especially when lifting, bending, exercising or at the end of a long day, suggests the weak area is under strain.</p>
-                        </div>
-                    </div>
-                    <div class="article-sign">
-                        <span class="article-sign-num">3</span>
-                        <div>
-                            <h3>A bulge that keeps growing</h3>
-                            <p>If it is getting bigger, appearing more often, or starting to interfere with work, exercise or sleep, waiting rarely makes things better. Repair is usually simpler while the hernia is still small.</p>
-                        </div>
-                    </div>
-                    <div class="article-sign">
-                        <span class="article-sign-num">4</span>
-                        <div>
-                            <h3>A bulge that won&rsquo;t go back in</h3>
-                            <p>If the lump stays out when you lie down and cannot be gently pressed back, or it feels firm and tender, tissue may be trapped. See a surgeon soon, before it becomes an emergency.</p>
-                        </div>
-                    </div>
-                    <div class="article-sign is-urgent">
-                        <span class="article-sign-num">5</span>
-                        <div>
-                            <h3>Sudden severe pain with sickness &mdash; an emergency</h3>
-                            <p>Sudden intense pain, redness or a dark colour over the bulge, nausea or vomiting, fever, or being unable to pass stool or gas can mean the trapped tissue has lost its blood supply. Do not wait: call our 24x7 helpline on <a href="<?= htmlspecialchars($info['phone_href']) ?>"><?= htmlspecialchars($info['phone_display']) ?></a> or go to the nearest hospital immediately.</p>
-                        </div>
-                    </div>
+                            <h2>5 signs you might need hernia surgery</h2>
+                            <div class="article-sign">
+                                <span class="article-sign-num">1</span>
+                                <div>
+                                    <h3>A bulge you can see or feel</h3>
+                                    <p>A lump in the groin, near the belly button or over an old scar is the classic sign. It often shows when you stand, cough or lift, and may disappear when you lie down. A hernia does not heal on its own, so any new bulge deserves an examination.</p>
+                                </div>
+                            </div>
+                            <div class="article-sign">
+                                <span class="article-sign-num">2</span>
+                                <div>
+                                    <h3>Pain, burning or a heavy, dragging feeling</h3>
+                                    <p>A dull ache, pulling or burning at the site, especially when lifting, bending, exercising or at the end of a long day, suggests the weak area is under strain.</p>
+                                </div>
+                            </div>
+                            <div class="article-sign">
+                                <span class="article-sign-num">3</span>
+                                <div>
+                                    <h3>A bulge that keeps growing</h3>
+                                    <p>If it is getting bigger, appearing more often, or starting to interfere with work, exercise or sleep, waiting rarely makes things better. Repair is usually simpler while the hernia is still small.</p>
+                                </div>
+                            </div>
+                            <div class="article-sign">
+                                <span class="article-sign-num">4</span>
+                                <div>
+                                    <h3>A bulge that won&rsquo;t go back in</h3>
+                                    <p>If the lump stays out when you lie down and cannot be gently pressed back, or it feels firm and tender, tissue may be trapped. See a surgeon soon, before it becomes an emergency.</p>
+                                </div>
+                            </div>
+                            <div class="article-sign is-urgent">
+                                <span class="article-sign-num">5</span>
+                                <div>
+                                    <h3>Sudden severe pain with sickness &mdash; an emergency</h3>
+                                    <p>Sudden intense pain, redness or a dark colour over the bulge, nausea or vomiting, fever, or being unable to pass stool or gas can mean the trapped tissue has lost its blood supply. Do not wait: call our 24x7 helpline on <a href="<?= htmlspecialchars($info['phone_href']) ?>"><?= htmlspecialchars($info['phone_display']) ?></a> or go to the nearest hospital immediately.</p>
+                                </div>
+                            </div>
 
-                    <h2>What happens next?</h2>
-                    <p>A surgeon can usually diagnose a hernia by examination, sometimes with an ultrasound. Not every hernia needs urgent surgery, and a small hernia without symptoms may simply be watched. But because hernias do not go away by themselves, an expert opinion helps you choose the right time and the right technique, open or laparoscopic.</p>
+                            <h2>What happens next?</h2>
+                            <p>A surgeon can usually diagnose a hernia by examination, sometimes with an ultrasound. Not every hernia needs urgent surgery, and a small hernia without symptoms may simply be watched. But because hernias do not go away by themselves, an expert opinion helps you choose the right time and the right technique, open or laparoscopic.</p>
 
-                    <div class="article-cta">
-                        <h3>Noticed one of these signs?</h3>
-                        <p>Book a free consultation with Dr. S. Ravi Kumar and get clear, honest advice on your options.</p>
-                        <a href="book-free-appointment.php" class="about-btn">Book Free Consultation <i class="fi fi-rs-arrow-small-right"></i></a>
+                            <div class="article-cta">
+                                <h3>Noticed one of these signs?</h3>
+                                <p>Book a free consultation with Dr. S. Ravi Kumar and get clear, honest advice on your options.</p>
+                                <a href="book-free-appointment.php" class="about-btn">Book Free Consultation <i class="fi fi-rs-arrow-small-right"></i></a>
+                            </div>
+
+                            <p class="article-note">This article is for general information only and is not a substitute for medical advice. Please consult a doctor about your own condition.</p>
+                        </article>
                     </div>
-
-                    <p class="article-note">This article is for general information only and is not a substitute for medical advice. Please consult a doctor about your own condition.</p>
-                </article>
+                </div>
             </div>
         </section>
         <!--/ article -->

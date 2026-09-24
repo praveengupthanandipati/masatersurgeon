@@ -29,33 +29,39 @@
 
         <!-- intro about hysterectomy -->
         <section class="about-section">
-            <div class="container-90 about-inner">
-                <div class="about-media" data-aos="fade-right">
-                    <div class="about-media-frame">
-                        <img src="img/slider01.jpg" alt="Laparoscopic hysterectomy at Master Surgeon" class="about-img" loading="lazy">
-                    </div>
-                    <div class="about-badge">
-                        <i class="fi fi-rs-user-md"></i>
-                        <div>
-                            <strong>Dr. S. Ravi Kumar</strong>
-                            <span>Laparoscopic &amp; Laser Surgeon</span>
+            <div class="container-90">
+                <div class="row align-items-center g-4 g-lg-5 about-row">
+                    <div class="col-12 col-lg-5">
+                        <div class="about-media" data-aos="fade-right">
+                            <div class="about-media-frame">
+                                <img src="img/slider01.jpg" alt="Laparoscopic hysterectomy at Master Surgeon" class="about-img" loading="lazy">
+                            </div>
+                            <div class="about-badge">
+                                <i class="fi fi-rs-user-md"></i>
+                                <div>
+                                    <strong>Dr. S. Ravi Kumar</strong>
+                                    <span>Laparoscopic &amp; Laser Surgeon</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="about-content" data-aos="fade-left">
-                    <span class="section-eyebrow">About the Procedure</span>
-                    <h2 class="about-title">What is <span>Hysterectomy?</span></h2>
-                    <p class="about-text">Hysterectomy is a surgical operation to remove the uterus (womb), and sometimes the cervix, ovaries and fallopian tubes. It is recommended for conditions such as fibroids, heavy bleeding, chronic pelvic pain and uterine prolapse when other treatments have not helped.</p>
-                    <p class="about-text">It can be performed as <strong>laparoscopic (keyhole) surgery</strong> through a few tiny incisions, or as <strong>open surgery</strong> through one incision in the lower abdomen. We take time to explain every option, so you can make a confident and informed decision.</p>
+                    <div class="col-12 col-lg-7">
+                        <div class="about-content" data-aos="fade-left">
+                            <span class="section-eyebrow">About the Procedure</span>
+                            <h2 class="about-title">What is <span>Hysterectomy?</span></h2>
+                            <p class="about-text">Hysterectomy is a surgical operation to remove the uterus (womb), and sometimes the cervix, ovaries and fallopian tubes. It is recommended for conditions such as fibroids, heavy bleeding, chronic pelvic pain and uterine prolapse when other treatments have not helped.</p>
+                            <p class="about-text">It can be performed as <strong>laparoscopic (keyhole) surgery</strong> through a few tiny incisions, or as <strong>open surgery</strong> through one incision in the lower abdomen. We take time to explain every option, so you can make a confident and informed decision.</p>
 
-                    <ul class="about-list">
-                        <?php foreach ($data['hysterectomy']['goals'] as $goal): ?>
-                            <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                            <ul class="about-list">
+                                <?php foreach ($data['hysterectomy']['goals'] as $goal): ?>
+                                    <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
+                                <?php endforeach; ?>
+                            </ul>
 
-                    <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                            <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,11 +76,13 @@
                     <p class="section-subtitle">These symptoms have many possible causes and do not always mean surgery. A proper examination will tell you what is needed.</p>
                 </div>
 
-                <div class="why-grid why-grid--3">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hysterectomy']['symptoms'] as $i => $symptom): ?>
-                        <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
-                            <p class="why-card-text"><?= $symptom['label'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
+                                <p class="why-card-text"><?= $symptom['label'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -91,12 +99,14 @@
                     <p class="section-subtitle">Both approaches are safe and effective. We recommend the one that best suits your condition and health.</p>
                 </div>
 
-                <div class="why-grid why-grid--2">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hysterectomy']['types'] as $i => $type): ?>
-                        <div class="why-card" data-aos="<?= $i === 0 ? 'fade-right' : 'fade-left' ?>">
-                            <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $type['title'] ?></h3>
-                            <p class="why-card-text"><?= $type['text'] ?></p>
+                        <div class="col-12 col-md-6 col-xl-5">
+                            <div class="why-card" data-aos="<?= $i === 0 ? 'fade-right' : 'fade-left' ?>">
+                                <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $type['title'] ?></h3>
+                                <p class="why-card-text"><?= $type['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -113,12 +123,14 @@
                     <p class="section-subtitle">Surgery is considered when a condition seriously affects your health or quality of life and other treatments have not worked.</p>
                 </div>
 
-                <div class="why-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hysterectomy']['options'] as $i => $option): ?>
-                        <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 4) * 80 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $option['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $option['title'] ?></h3>
-                            <p class="why-card-text"><?= $option['text'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 4) * 80 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $option['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $option['title'] ?></h3>
+                                <p class="why-card-text"><?= $option['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -135,14 +147,16 @@
                     <p class="section-subtitle">Led by Dr. S. Ravi Kumar, our team offers respectful, private care from your first consultation to complete recovery.</p>
                 </div>
 
-                <div class="recovery-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hysterectomy']['steps'] as $step): ?>
-                        <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
-                            <span class="recovery-step-number"><?= $step['number'] ?></span>
-                            <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
-                            <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
-                            <p class="recovery-step-text"><?= $step['text'] ?></p>
-                            <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
+                                <span class="recovery-step-number"><?= $step['number'] ?></span>
+                                <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
+                                <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
+                                <p class="recovery-step-text"><?= $step['text'] ?></p>
+                                <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -158,13 +172,17 @@
                     <h2 class="section-title">Hysterectomy &mdash; Frequently Asked Questions</h2>
                 </div>
 
-                <div class="faq-list">
-                    <?php foreach ($data['hysterectomy']['faqs'] as $faq): ?>
-                        <details class="faq-item" data-aos="fade-up">
-                            <summary><?= $faq['q'] ?></summary>
-                            <p><?= $faq['a'] ?></p>
-                        </details>
-                    <?php endforeach; ?>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="faq-list">
+                            <?php foreach ($data['hysterectomy']['faqs'] as $faq): ?>
+                                <details class="faq-item" data-aos="fade-up">
+                                    <summary><?= $faq['q'] ?></summary>
+                                    <p><?= $faq['a'] ?></p>
+                                </details>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

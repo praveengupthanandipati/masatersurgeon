@@ -36,19 +36,21 @@
                     <p class="section-subtitle">Practical, easy-to-understand guidance on surgery, recovery and staying healthy.</p>
                 </div>
 
-                <div class="blogs-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['blogs'] as $blog): ?>
-                        <a href="<?= $blog['href'] ?? '#' ?>" class="blog-card" data-aos="fade-up" data-aos-delay="<?= $blog['delay'] ?>">
-                            <div class="blog-media">
-                                <img src="<?= $blog['img'] ?>" alt="<?= $blog['tag'] ?>" class="blog-img">
-                            </div>
-                            <div class="blog-body">
-                                <span class="blog-tag"><?= $blog['tag'] ?></span>
-                                <h3 class="blog-title"><?= $blog['title'] ?></h3>
-                                <p class="blog-excerpt"><?= $blog['excerpt'] ?></p>
-                                <span class="blog-meta"><i class="fi fi-rs-clock"></i> <?= $blog['read_time'] ?></span>
-                            </div>
-                        </a>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <a href="<?= $blog['href'] ?? '#' ?>" class="blog-card" data-aos="fade-up" data-aos-delay="<?= $blog['delay'] ?>">
+                                <div class="blog-media">
+                                    <img src="<?= $blog['img'] ?>" alt="<?= $blog['tag'] ?>" class="blog-img">
+                                </div>
+                                <div class="blog-body">
+                                    <span class="blog-tag"><?= $blog['tag'] ?></span>
+                                    <h3 class="blog-title"><?= $blog['title'] ?></h3>
+                                    <p class="blog-excerpt"><?= $blog['excerpt'] ?></p>
+                                    <span class="blog-meta"><i class="fi fi-rs-clock"></i> <?= $blog['read_time'] ?></span>
+                                </div>
+                            </a>
+                        </div>
                     <?php endforeach; ?>
                 </div>
             </div>

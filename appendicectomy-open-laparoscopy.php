@@ -29,33 +29,32 @@
 
         <!-- intro about appendicectomy -->
         <section class="about-section">
-            <div class="container-90 about-inner">
-                <div class="about-media" data-aos="fade-right">
-                    <div class="about-media-frame">
-                        <img src="img/slider02.jpg" alt="Laparoscopic appendicectomy at Master Surgeon" class="about-img">
-                    </div>
-                    <div class="about-badge">
-                        <i class="fi fi-rs-user-md"></i>
-                        <div>
-                            <strong>Dr. S. Ravi Kumar</strong>
-                            <span>Laparoscopic &amp; Laser Surgeon</span>
+            <div class="container-90">
+                <div class="row align-items-center g-4 g-lg-5 about-row">
+                    <div class="col-12 col-lg-5">
+                        <div class="about-media" data-aos="fade-right">
+                            <div class="about-media-frame">
+                                <img src="img/appendicectomy.jpg" alt="Laparoscopic appendicectomy at Master Surgeon" class="about-img">
+                            </div>                   
                         </div>
                     </div>
-                </div>
 
-                <div class="about-content" data-aos="fade-left">
-                    <span class="section-eyebrow">About the Procedure</span>
-                    <h2 class="about-title">What is <span>Appendicectomy?</span></h2>
-                    <p class="about-text">Appendicectomy (also called appendectomy) is the surgical removal of the appendix, a small pouch attached to the large intestine in the lower right abdomen. It is the standard treatment for appendicitis &mdash; an inflamed or infected appendix that can burst if left untreated and lead to a serious abdominal infection.</p>
-                    <p class="about-text">The operation can be performed in two ways: <strong>laparoscopic (keyhole) surgery</strong> through a few tiny incisions, or <strong>open surgery</strong> through a single small incision. The right choice depends on how advanced the infection is and your overall health.</p>
+                    <div class="col-12 col-lg-7">
+                        <div class="about-content" data-aos="fade-left">
+                            <span class="section-eyebrow">About the Procedure</span>
+                            <h2 class="about-title">What is <span>Appendicectomy?</span></h2>
+                            <p class="about-text">Appendicectomy (also called appendectomy) is the surgical removal of the appendix, a small pouch attached to the large intestine in the lower right abdomen. It is the standard treatment for appendicitis &mdash; an inflamed or infected appendix that can burst if left untreated and lead to a serious abdominal infection.</p>
+                            <p class="about-text">The operation can be performed in two ways: <strong>laparoscopic (keyhole) surgery</strong> through a few tiny incisions, or <strong>open surgery</strong> through a single small incision. The right choice depends on how advanced the infection is and your overall health.</p>
 
-                    <ul class="about-list">
-                        <?php foreach ($data['appendicectomy']['benefits'] as $benefit): ?>
-                            <li><i class="fi fi-rs-check-circle"></i> <?= $benefit ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                            <ul class="about-list">
+                                <?php foreach ($data['appendicectomy']['benefits'] as $benefit): ?>
+                                    <li><i class="fi fi-rs-check-circle"></i> <?= $benefit ?></li>
+                                <?php endforeach; ?>
+                            </ul>
 
-                    <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                            <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,11 +69,13 @@
                     <p class="section-subtitle">Appendicitis is a medical emergency. If you notice these symptoms, do not delay &mdash; consult a surgeon immediately.</p>
                 </div>
 
-                <div class="why-grid why-grid--3">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['appendicectomy']['symptoms'] as $i => $symptom): ?>
-                        <div class="why-card" data-aos="fade-up" data-aos-delay="<?= ($i % 3) * 60 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
-                            <p class="why-card-text"><?= $symptom['label'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="why-card" data-aos="fade-up" data-aos-delay="<?= ($i % 3) * 60 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
+                                <p class="why-card-text"><?= $symptom['label'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -91,12 +92,14 @@
                     <p class="section-subtitle">Both are safe and effective. We recommend the approach that is best for your condition.</p>
                 </div>
 
-                <div class="why-grid why-grid--2">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['appendicectomy']['types'] as $i => $type): ?>
-                        <div class="why-card" data-aos="fade-up" data-aos-delay="<?= $i * 60 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $type['title'] ?></h3>
-                            <p class="why-card-text"><?= $type['text'] ?></p>
+                        <div class="col-12 col-md-6 col-xl-5">
+                            <div class="why-card" data-aos="fade-up" data-aos-delay="<?= $i * 60 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $type['title'] ?></h3>
+                                <p class="why-card-text"><?= $type['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -113,14 +116,16 @@
                     <p class="section-subtitle">Led by Dr. S. Ravi Kumar, our team takes you from diagnosis to full recovery with clear communication at every step.</p>
                 </div>
 
-                <div class="recovery-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['appendicectomy']['steps'] as $step): ?>
-                        <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
-                            <span class="recovery-step-number"><?= $step['number'] ?></span>
-                            <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
-                            <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
-                            <p class="recovery-step-text"><?= $step['text'] ?></p>
-                            <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
+                                <span class="recovery-step-number"><?= $step['number'] ?></span>
+                                <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
+                                <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
+                                <p class="recovery-step-text"><?= $step['text'] ?></p>
+                                <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -136,13 +141,17 @@
                     <h2 class="section-title">Appendicectomy &mdash; Frequently Asked Questions</h2>
                 </div>
 
-                <div class="faq-list">
-                    <?php foreach ($data['appendicectomy']['faqs'] as $faq): ?>
-                        <details class="faq-item" data-aos="fade-up">
-                            <summary><?= $faq['q'] ?></summary>
-                            <p><?= $faq['a'] ?></p>
-                        </details>
-                    <?php endforeach; ?>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="faq-list">
+                            <?php foreach ($data['appendicectomy']['faqs'] as $faq): ?>
+                                <details class="faq-item" data-aos="fade-up">
+                                    <summary><?= $faq['q'] ?></summary>
+                                    <p><?= $faq['a'] ?></p>
+                                </details>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -29,33 +29,39 @@
 
         <!-- intro about hernia surgery -->
         <section class="about-section">
-            <div class="container-90 about-inner">
-                <div class="about-media" data-aos="fade-right">
-                    <div class="about-media-frame">
-                        <img src="img/slider02.jpg" alt="Laparoscopic hernia repair at Master Surgeon" class="about-img" loading="lazy">
-                    </div>
-                    <div class="about-badge">
-                        <i class="fi fi-rs-user-md"></i>
-                        <div>
-                            <strong>Dr. S. Ravi Kumar</strong>
-                            <span>Laparoscopic &amp; Laser Surgeon</span>
+            <div class="container-90">
+                <div class="row align-items-center g-4 g-lg-5 about-row">
+                    <div class="col-12 col-lg-5">
+                        <div class="about-media" data-aos="fade-right">
+                            <div class="about-media-frame">
+                                <img src="img/slider02.jpg" alt="Laparoscopic hernia repair at Master Surgeon" class="about-img" loading="lazy">
+                            </div>
+                            <div class="about-badge">
+                                <i class="fi fi-rs-user-md"></i>
+                                <div>
+                                    <strong>Dr. S. Ravi Kumar</strong>
+                                    <span>Laparoscopic &amp; Laser Surgeon</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="about-content" data-aos="fade-left">
-                    <span class="section-eyebrow">About the Procedure</span>
-                    <h2 class="about-title">What is <span>Hernia Surgery?</span></h2>
-                    <p class="about-text">A hernia occurs when an organ or fatty tissue pushes through a weak spot in the muscle wall of the abdomen, forming a bulge, most often in the groin, belly button or over an old surgical scar. A hernia does not heal on its own, and it tends to grow larger and more painful over time.</p>
-                    <p class="about-text">Surgery repairs the weak area, usually reinforcing it with a mesh. It can be done as <strong>laparoscopic (keyhole) surgery</strong> through a few tiny incisions, or as <strong>open surgery</strong> through one incision over the hernia. Your surgeon will recommend the best option for you.</p>
+                    <div class="col-12 col-lg-7">
+                        <div class="about-content" data-aos="fade-left">
+                            <span class="section-eyebrow">About the Procedure</span>
+                            <h2 class="about-title">What is <span>Hernia Surgery?</span></h2>
+                            <p class="about-text">A hernia occurs when an organ or fatty tissue pushes through a weak spot in the muscle wall of the abdomen, forming a bulge, most often in the groin, belly button or over an old surgical scar. A hernia does not heal on its own, and it tends to grow larger and more painful over time.</p>
+                            <p class="about-text">Surgery repairs the weak area, usually reinforcing it with a mesh. It can be done as <strong>laparoscopic (keyhole) surgery</strong> through a few tiny incisions, or as <strong>open surgery</strong> through one incision over the hernia. Your surgeon will recommend the best option for you.</p>
 
-                    <ul class="about-list">
-                        <?php foreach ($data['hernia']['goals'] as $goal): ?>
-                            <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                            <ul class="about-list">
+                                <?php foreach ($data['hernia']['goals'] as $goal): ?>
+                                    <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
+                                <?php endforeach; ?>
+                            </ul>
 
-                    <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                            <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,11 +76,13 @@
                     <p class="section-subtitle">A hernia often shows first as a soft bulge that is more noticeable when you stand, cough or strain. Do not ignore it, and seek urgent care if it becomes hard or painful.</p>
                 </div>
 
-                <div class="why-grid why-grid--3">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hernia']['symptoms'] as $i => $symptom): ?>
-                        <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
-                            <p class="why-card-text"><?= $symptom['label'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
+                                <p class="why-card-text"><?= $symptom['label'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -91,12 +99,14 @@
                     <p class="section-subtitle">Both approaches are safe and effective. We choose the one that suits your hernia and your health best.</p>
                 </div>
 
-                <div class="why-grid why-grid--2">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hernia']['types'] as $i => $type): ?>
-                        <div class="why-card" data-aos="<?= $i === 0 ? 'fade-right' : 'fade-left' ?>">
-                            <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $type['title'] ?></h3>
-                            <p class="why-card-text"><?= $type['text'] ?></p>
+                        <div class="col-12 col-md-6 col-xl-5">
+                            <div class="why-card" data-aos="<?= $i === 0 ? 'fade-right' : 'fade-left' ?>">
+                                <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $type['title'] ?></h3>
+                                <p class="why-card-text"><?= $type['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -113,12 +123,14 @@
                     <p class="section-subtitle">The repair is planned according to the location, size and cause of your hernia.</p>
                 </div>
 
-                <div class="why-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hernia']['options'] as $i => $option): ?>
-                        <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 4) * 80 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $option['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $option['title'] ?></h3>
-                            <p class="why-card-text"><?= $option['text'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="why-card" data-aos="zoom-in-up" data-aos-delay="<?= ($i % 4) * 80 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $option['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $option['title'] ?></h3>
+                                <p class="why-card-text"><?= $option['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -135,14 +147,16 @@
                     <p class="section-subtitle">Led by Dr. S. Ravi Kumar, our team takes you from diagnosis to full recovery with clear communication at every step.</p>
                 </div>
 
-                <div class="recovery-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['hernia']['steps'] as $step): ?>
-                        <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
-                            <span class="recovery-step-number"><?= $step['number'] ?></span>
-                            <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
-                            <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
-                            <p class="recovery-step-text"><?= $step['text'] ?></p>
-                            <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
+                                <span class="recovery-step-number"><?= $step['number'] ?></span>
+                                <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
+                                <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
+                                <p class="recovery-step-text"><?= $step['text'] ?></p>
+                                <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -158,13 +172,17 @@
                     <h2 class="section-title">Hernia Surgery &mdash; Frequently Asked Questions</h2>
                 </div>
 
-                <div class="faq-list">
-                    <?php foreach ($data['hernia']['faqs'] as $faq): ?>
-                        <details class="faq-item" data-aos="fade-up">
-                            <summary><?= $faq['q'] ?></summary>
-                            <p><?= $faq['a'] ?></p>
-                        </details>
-                    <?php endforeach; ?>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="faq-list">
+                            <?php foreach ($data['hernia']['faqs'] as $faq): ?>
+                                <details class="faq-item" data-aos="fade-up">
+                                    <summary><?= $faq['q'] ?></summary>
+                                    <p><?= $faq['a'] ?></p>
+                                </details>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

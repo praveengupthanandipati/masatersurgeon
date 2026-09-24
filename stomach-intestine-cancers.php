@@ -29,33 +29,39 @@
 
         <!-- intro about stomach & intestine cancers -->
         <section class="about-section">
-            <div class="container-90 about-inner">
-                <div class="about-media" data-aos="fade-right">
-                    <div class="about-media-frame">
-                        <img src="img/slider01.jpg" alt="Stomach and intestine cancer surgery at Master Surgeon" class="about-img">
-                    </div>
-                    <div class="about-badge">
-                        <i class="fi fi-rs-user-md"></i>
-                        <div>
-                            <strong>Dr. S. Ravi Kumar</strong>
-                            <span>Laparoscopic &amp; Laser Surgeon</span>
+            <div class="container-90">
+                <div class="row align-items-center g-4 g-lg-5 about-row">
+                    <div class="col-12 col-lg-5">
+                        <div class="about-media" data-aos="fade-right">
+                            <div class="about-media-frame">
+                                <img src="img/slider01.jpg" alt="Stomach and intestine cancer surgery at Master Surgeon" class="about-img">
+                            </div>
+                            <div class="about-badge">
+                                <i class="fi fi-rs-user-md"></i>
+                                <div>
+                                    <strong>Dr. S. Ravi Kumar</strong>
+                                    <span>Laparoscopic &amp; Laser Surgeon</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="about-content" data-aos="fade-left">
-                    <span class="section-eyebrow">About the Condition</span>
-                    <h2 class="about-title">Understanding <span>Stomach &amp; Intestine Cancers</span></h2>
-                    <p class="about-text">Stomach and intestine cancers develop when abnormal cells grow uncontrolled in the lining of the stomach, small intestine, colon or rectum. In the early stages they often cause few or vague symptoms, which is why persistent digestive problems should never be ignored.</p>
-                    <p class="about-text">The good news is that early diagnosis greatly improves treatment options. For most patients, surgery to remove the tumour is a key part of treatment, and it may be combined with chemotherapy or radiation planned together with oncology specialists.</p>
+                    <div class="col-12 col-lg-7">
+                        <div class="about-content" data-aos="fade-left">
+                            <span class="section-eyebrow">About the Condition</span>
+                            <h2 class="about-title">Understanding <span>Stomach &amp; Intestine Cancers</span></h2>
+                            <p class="about-text">Stomach and intestine cancers develop when abnormal cells grow uncontrolled in the lining of the stomach, small intestine, colon or rectum. In the early stages they often cause few or vague symptoms, which is why persistent digestive problems should never be ignored.</p>
+                            <p class="about-text">The good news is that early diagnosis greatly improves treatment options. For most patients, surgery to remove the tumour is a key part of treatment, and it may be combined with chemotherapy or radiation planned together with oncology specialists.</p>
 
-                    <ul class="about-list">
-                        <?php foreach ($data['stomach_intestine']['goals'] as $goal): ?>
-                            <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                            <ul class="about-list">
+                                <?php foreach ($data['stomach_intestine']['goals'] as $goal): ?>
+                                    <li><i class="fi fi-rs-check-circle"></i> <?= $goal ?></li>
+                                <?php endforeach; ?>
+                            </ul>
 
-                    <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                            <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,11 +76,13 @@
                     <p class="section-subtitle">These symptoms can have many causes, but if they persist for more than a couple of weeks, please get evaluated by a surgeon.</p>
                 </div>
 
-                <div class="why-grid why-grid--3">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['stomach_intestine']['symptoms'] as $i => $symptom): ?>
-                        <div class="why-card" data-aos="fade-up" data-aos-delay="<?= ($i % 3) * 60 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
-                            <p class="why-card-text"><?= $symptom['label'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="why-card" data-aos="fade-up" data-aos-delay="<?= ($i % 3) * 60 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $symptom['icon'] ?>"></i></span>
+                                <p class="why-card-text"><?= $symptom['label'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -91,12 +99,14 @@
                     <p class="section-subtitle">Treatment is planned according to where the cancer is, how far it has spread and your overall health.</p>
                 </div>
 
-                <div class="why-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['stomach_intestine']['types'] as $i => $type): ?>
-                        <div class="why-card" data-aos="fade-up" data-aos-delay="<?= $i * 60 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $type['title'] ?></h3>
-                            <p class="why-card-text"><?= $type['text'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="why-card" data-aos="fade-up" data-aos-delay="<?= $i * 60 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $type['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $type['title'] ?></h3>
+                                <p class="why-card-text"><?= $type['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -113,14 +123,16 @@
                     <p class="section-subtitle">Led by Dr. S. Ravi Kumar, our team guides you from first consultation through surgery and long-term follow-up, with honest, clear communication at every step.</p>
                 </div>
 
-                <div class="recovery-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['stomach_intestine']['steps'] as $step): ?>
-                        <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
-                            <span class="recovery-step-number"><?= $step['number'] ?></span>
-                            <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
-                            <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
-                            <p class="recovery-step-text"><?= $step['text'] ?></p>
-                            <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="recovery-step" data-aos="fade-up" data-aos-delay="<?= $step['delay'] ?>">
+                                <span class="recovery-step-number"><?= $step['number'] ?></span>
+                                <span class="recovery-step-icon"><i class="fi <?= $step['icon'] ?>"></i></span>
+                                <h3 class="recovery-step-title"><?= $step['title'] ?></h3>
+                                <p class="recovery-step-text"><?= $step['text'] ?></p>
+                                <span class="recovery-step-tag"><i class="fi fi-rs-check-circle"></i> <?= $step['tag'] ?></span>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -136,13 +148,17 @@
                     <h2 class="section-title">Stomach &amp; Intestine Cancers &mdash; Frequently Asked Questions</h2>
                 </div>
 
-                <div class="faq-list">
-                    <?php foreach ($data['stomach_intestine']['faqs'] as $faq): ?>
-                        <details class="faq-item" data-aos="fade-up">
-                            <summary><?= $faq['q'] ?></summary>
-                            <p><?= $faq['a'] ?></p>
-                        </details>
-                    <?php endforeach; ?>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="faq-list">
+                            <?php foreach ($data['stomach_intestine']['faqs'] as $faq): ?>
+                                <details class="faq-item" data-aos="fade-up">
+                                    <summary><?= $faq['q'] ?></summary>
+                                    <p><?= $faq['a'] ?></p>
+                                </details>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

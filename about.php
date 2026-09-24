@@ -31,33 +31,39 @@
 
         <!-- intro about master surgeon -->
         <section class="about-section">
-            <div class="container-90 about-inner">
-                <div class="about-media" data-aos="fade-right">
-                    <div class="about-media-frame">
-                        <img src="img/slider03.jpg" alt="Dr. S. Ravi Kumar - Laparoscopic &amp; Laser Surgeon" class="about-img">
-                    </div>
-                    <div class="about-badge">
-                        <i class="fi fi-rs-user-md"></i>
-                        <div>
-                            <strong>Dr. S. Ravi Kumar</strong>
-                            <span>Laparoscopic &amp; Laser Surgeon</span>
+            <div class="container-90">
+                <div class="row align-items-center g-4 g-lg-5 about-row">
+                    <div class="col-12 col-lg-5">
+                        <div class="about-media" data-aos="fade-right">
+                            <div class="about-media-frame">
+                                <img src="img/drravi.jpg" alt="Dr. S. Ravi Kumar - Laparoscopic &amp; Laser Surgeon" class="about-img">
+                            </div>
+                            <div class="about-badge">
+                                <i class="fi fi-rs-user-md"></i>
+                                <div>
+                                    <strong>Dr. S. Ravi Kumar</strong>
+                                    <span>Laparoscopic &amp; Laser Surgeon</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="about-content" data-aos="fade-left">
-                    <span class="section-eyebrow">Who We Are</span>
-                    <h2 class="about-title">India's Trusted Name in <span>Laparoscopic Surgical Care</span></h2>
-                    <p class="about-text">Master Surgeon is a dedicated laparoscopic and general surgery clinic led by Dr. S. Ravi Kumar, offering advanced, minimally invasive treatment for hernia, piles, fistula, fissure, gallstones, hydrocele, hysterectomy, thyroid, breast and stomach &amp; intestine conditions. With a focus on precision, patient comfort and quicker recovery, we combine modern laparoscopic &amp; laser techniques with a genuinely personal approach to every consultation.</p>
-                    <p class="about-text">From your first visit to full recovery, our team is committed to clear communication, safe surgical practices and compassionate care &mdash; helping over 50,000 patients get back to their lives faster and with confidence.</p>
+                    <div class="col-12 col-lg-7">
+                        <div class="about-content" data-aos="fade-left">
+                            <span class="section-eyebrow">Who We Are</span>
+                            <h2 class="about-title">India's Trusted Name in <span>Laparoscopic Surgical Care</span></h2>
+                            <p class="about-text">Master Surgeon is a dedicated laparoscopic and general surgery clinic led by Dr. S. Ravi Kumar, offering advanced, minimally invasive treatment for hernia, piles, fistula, fissure, gallstones, hydrocele, hysterectomy, thyroid, breast and stomach &amp; intestine conditions. With a focus on precision, patient comfort and quicker recovery, we combine modern laparoscopic &amp; laser techniques with a genuinely personal approach to every consultation.</p>
+                            <p class="about-text">From your first visit to full recovery, our team is committed to clear communication, safe surgical practices and compassionate care &mdash; helping over 50,000 patients get back to their lives faster and with confidence.</p>
 
-                    <ul class="about-list">
-                        <li><i class="fi fi-rs-check-circle"></i> Advanced Laparoscopic &amp; Laser Techniques</li>
-                        <li><i class="fi fi-rs-check-circle"></i> Personalized, Patient-First Care</li>
-                        <li><i class="fi fi-rs-check-circle"></i> Transparent Consultation &amp; Follow-up</li>
-                    </ul>
+                            <ul class="about-list">
+                                <li><i class="fi fi-rs-check-circle"></i> Advanced Laparoscopic &amp; Laser Techniques</li>
+                                <li><i class="fi fi-rs-check-circle"></i> Personalized, Patient-First Care</li>
+                                <li><i class="fi fi-rs-check-circle"></i> Transparent Consultation &amp; Follow-up</li>
+                            </ul>
 
-                    <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                            <a href="tel:+919676717852" class="about-btn">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -72,12 +78,14 @@
                     <p class="section-subtitle">Everything about our clinic is built around safer surgery, faster recovery and a better patient experience.</p>
                 </div>
 
-                <div class="why-grid">
+                <div class="row g-4 row-cards justify-content-center">
                     <?php foreach ($data['why_choose'] as $i => $reason): ?>
-                        <div class="why-card" data-aos="fade-up" data-aos-delay="<?= ($i % 4) * 60 ?>">
-                            <span class="why-card-icon"><i class="fi <?= $reason['icon'] ?>"></i></span>
-                            <h3 class="why-card-title"><?= $reason['title'] ?></h3>
-                            <p class="why-card-text"><?= $reason['text'] ?></p>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="why-card" data-aos="fade-up" data-aos-delay="<?= ($i % 4) * 60 ?>">
+                                <span class="why-card-icon"><i class="fi <?= $reason['icon'] ?>"></i></span>
+                                <h3 class="why-card-title"><?= $reason['title'] ?></h3>
+                                <p class="why-card-text"><?= $reason['text'] ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -94,12 +102,14 @@
                     <p class="section-subtitle">Modern facilities and thoughtful processes designed around every patient's surgical journey.</p>
                 </div>
 
-                <div class="services-grid">
+                <div class="row g-3 g-md-4 row-cards justify-content-center">
                     <?php foreach ($data['special_features'] as $i => $feature): ?>
-                        <a href="tel:+919676717852" class="service-card" data-aos="fade-up" data-aos-delay="<?= ($i % 6) * 60 ?>">
-                            <span class="service-icon"><i class="fi <?= $feature['icon'] ?>"></i></span>
-                            <span class="service-label"><?= $feature['label'] ?></span>
-                        </a>
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="tel:+919676717852" class="service-card" data-aos="fade-up" data-aos-delay="<?= ($i % 6) * 60 ?>">
+                                <span class="service-icon"><i class="fi <?= $feature['icon'] ?>"></i></span>
+                                <span class="service-label"><?= $feature['label'] ?></span>
+                            </a>
+                        </div>
                     <?php endforeach; ?>
                 </div>
             </div>
