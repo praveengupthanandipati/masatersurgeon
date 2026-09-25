@@ -34,9 +34,9 @@
                     <div class="col-12 col-lg-5">
                         <div class="about-media" data-aos="fade-right">
                             <div class="about-media-frame">
-                                <img src="img/slider03.jpg" alt="Hydrocele treatment at Master Surgeon" class="about-img">
+                                <img src="img/Hydrocele_treatment.jpg" alt="Hydrocele treatment at Master Surgeon" class="about-img">
                             </div>
-                            <div class="about-badge">
+                            <div class="about-badge d-none">
                                 <i class="fi fi-rs-user-md"></i>
                                 <div>
                                     <strong>Dr. S. Ravi Kumar</strong>

@@ -34,9 +34,9 @@
                     <div class="col-12 col-lg-5">
                         <div class="about-media" data-aos="fade-right">
                             <div class="about-media-frame">
-                                <img src="img/slider02.jpg" alt="Laparoscopic hernia repair at Master Surgeon" class="about-img" loading="lazy">
+                                <img src="img/Hernia_surgery_open_Laparoscopy.jpg" alt="Laparoscopic hernia repair at Master Surgeon" class="about-img" loading="lazy">
                             </div>
-                            <div class="about-badge">
+                            <div class="about-badge d-none">
                                 <i class="fi fi-rs-user-md"></i>
                                 <div>
                                     <strong>Dr. S. Ravi Kumar</strong>
