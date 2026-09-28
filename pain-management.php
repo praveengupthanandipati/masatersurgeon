@@ -34,7 +34,7 @@
                     <div class="col-12 col-lg-5">
                         <div class="about-media" data-aos="fade-right">
                             <div class="about-media-frame">
-                                <img src="img/slider02.jpg" alt="Pain management and relief at Master Surgeon" class="about-img" loading="lazy">
+                                <img src="img/Pain-Management.jpg" alt="Pain management and relief at Master Surgeon" class="about-img" loading="lazy">
                             </div>
                             <div class="about-badge">
                                 <i class="fi fi-rs-person-back-pain"></i>

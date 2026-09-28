@@ -34,15 +34,8 @@
                     <div class="col-12 col-lg-5">
                         <div class="about-media" data-aos="fade-right">
                             <div class="about-media-frame">
-                                <img src="img/slider01.jpg" alt="Laparoscopic hysterectomy at Master Surgeon" class="about-img" loading="lazy">
-                            </div>
-                            <div class="about-badge">
-                                <i class="fi fi-rs-user-md"></i>
-                                <div>
-                                    <strong>Dr. S. Ravi Kumar</strong>
-                                    <span>Laparoscopic &amp; Laser Surgeon</span>
-                                </div>
-                            </div>
+                                <img src="img/Hysterectomy—Open-Laparoscopy.jpg" alt="Laparoscopic hysterectomy at Master Surgeon" class="about-img" loading="lazy">
+                            </div>                          
                         </div>
                     </div>
 

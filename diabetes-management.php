@@ -34,15 +34,8 @@
                     <div class="col-12 col-lg-5">
                         <div class="about-media" data-aos="fade-right">
                             <div class="about-media-frame">
-                                <img src="img/slider01.jpg" alt="Diabetes management and care at Master Surgeon" class="about-img" loading="lazy">
-                            </div>
-                            <div class="about-badge">
-                                <i class="fi fi-rs-glucose"></i>
-                                <div>
-                                    <strong>Master Surgeon</strong>
-                                    <span>Diabetes Care</span>
-                                </div>
-                            </div>
+                                <img src="img/Diabetes-Management.jpg" alt="Diabetes management and care at Master Surgeon" class="about-img" loading="lazy">
+                            </div>                           
                         </div>
                     </div>
 

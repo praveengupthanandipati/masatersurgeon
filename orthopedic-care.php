@@ -34,7 +34,7 @@
                     <div class="col-12 col-lg-5">
                         <div class="about-media" data-aos="fade-right">
                             <div class="about-media-frame">
-                                <img src="img/doctor-sunkara-rajesh.svg" alt="Dr. Sunkara Rajesh - Orthopedic Surgeon at Master Surgeon" class="about-img" loading="lazy">
+                                <img src="img/Orthopedic-Care.jpg" alt="Dr. Sunkara Rajesh - Orthopedic Surgeon at Master Surgeon" class="about-img" loading="lazy">
                             </div>
                             <div class="about-badge">
                                 <i class="fi fi-rs-bone"></i>

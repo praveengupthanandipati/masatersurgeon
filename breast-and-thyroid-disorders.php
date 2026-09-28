@@ -34,15 +34,8 @@
                     <div class="col-12 col-lg-5">
                         <div class="about-media" data-aos="fade-right">
                             <div class="about-media-frame">
-                                <img src="img/slider03.jpg" alt="Breast and thyroid care at Master Surgeon" class="about-img" loading="lazy">
-                            </div>
-                            <div class="about-badge">
-                                <i class="fi fi-rs-user-md"></i>
-                                <div>
-                                    <strong>Dr. S. Ravi Kumar</strong>
-                                    <span>Laparoscopic &amp; Laser Surgeon</span>
-                                </div>
-                            </div>
+                                <img src="img/Breast-Thyroid-Disorders.jpg" alt="Breast and thyroid care at Master Surgeon" class="about-img" loading="lazy">
+                            </div>                            
                         </div>
                     </div>
 
