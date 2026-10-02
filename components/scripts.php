@@ -7,4 +7,4 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/aos.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="js/custom.js?v=<?= filemtime(__DIR__ . '/../js/custom.js') ?>"></script>

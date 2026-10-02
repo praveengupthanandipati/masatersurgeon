@@ -1,4 +1,7 @@
-<?php $data = require __DIR__ . '/components/data.php'; ?>
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) { @session_start(); }
+$data = require __DIR__ . '/components/data.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,30 +42,7 @@
                         </a>
                     </div>
 
-                    <div class="hero-form-card">
-                        <div class="hero-form-header">Book <span>FREE</span> Consultation</div>
-                        <div class="hero-form-body">
-                            <input type="text" class="hero-form-control" placeholder="Enter your full name">
-                            <div class="hero-form-phone">
-                                <span class="hero-form-code">&#127470;&#127475; +91</span>
-                                <input type="tel" class="hero-form-control" placeholder="Phone number">
-                            </div>
-                            <select class="hero-form-control" aria-label="Select Treatment">
-                                <option selected disabled>Select Treatment</option>
-                                <?php foreach ($data['treatment_options'] as $option): ?>
-                                    <option><?= $option ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <select class="hero-form-control" aria-label="Select City">
-                                <option selected disabled>Select City</option>
-                                <?php foreach ($data['appointment']['cities'] as $city): ?>
-                                    <option><?= htmlspecialchars($city) ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <button type="button" class="hero-form-submit">Book Free Consultation</button>
-                            <p class="hero-form-note"><i class="fi fi-rs-lock"></i> Your data is secured. We prioritize your medical privacy.</p>
-                        </div>
-                    </div>
+                    <?php include 'components/consultation-form.php'; ?>
                 </div>
             </div>
 

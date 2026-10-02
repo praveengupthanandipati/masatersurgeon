@@ -7,19 +7,6 @@ $info = $data['contact_info'];
 if (empty($_SESSION['contact_csrf'])) {
     $_SESSION['contact_csrf'] = bin2hex(random_bytes(16));
 }
-
-$form = handle_contact_request(contact_mail_config()['recipient']);
-
-if (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'XMLHttpRequest') {
-    header('Content-Type: application/json; charset=UTF-8');
-    echo json_encode(['status' => $form['status'], 'message' => $form['message'], 'errors' => $form['errors']]);
-    exit;
-}
-
-$old = $form['values'];
-$err = $form['errors'];
-$field = function ($key) use ($old) { return contact_e(isset($old[$key]) ? $old[$key] : ''); };
-$invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid' : ''; };
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,9 +86,9 @@ $invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid'
                     <div class="col-12 col-lg-7">
                         <div class="contact-form-wrap" data-aos="fade-left">
                             <h3 class="contact-form-title">Send Us a Message</h3>
-                            <div id="contactAlert" class="contact-alert<?= $form['status'] ? ' contact-alert-' . $form['status'] : '' ?>" role="alert" aria-live="polite"<?= $form['status'] ? '' : ' hidden' ?>><?= contact_e($form['message']) ?></div>
+                            <div id="contactAlert" class="contact-alert" role="alert" aria-live="polite" hidden></div>
 
-                            <form id="contactForm" class="contact-form" method="post" action="contact.php" novalidate>
+                            <form id="contactForm" class="contact-form" method="post" action="contact-mail.php" novalidate>
                                 <input type="hidden" name="csrf_token" value="<?= contact_e($_SESSION['contact_csrf']) ?>">
                                 <div class="contact-hp" aria-hidden="true">
                                     <label for="website">Leave this field empty</label>
@@ -111,33 +98,33 @@ $invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid'
                                 <div class="row gx-3">
                                     <div class="contact-field col-12 col-sm-6">
                                         <label for="cfName">Full Name <span>*</span></label>
-                                        <input type="text" id="cfName" name="name" class="contact-input<?= $invalid('name') ?>" value="<?= $field('name') ?>" maxlength="80" autocomplete="name" required>
-                                        <small class="contact-error" data-error-for="name"><?= contact_e($err['name'] ?? '') ?></small>
+                                        <input type="text" id="cfName" name="name" class="contact-input" maxlength="80" autocomplete="name" required>
+                                        <small class="contact-error" data-error-for="name"></small>
                                     </div>
                                     <div class="contact-field col-12 col-sm-6">
                                         <label for="cfPhone">Phone Number <span>*</span></label>
-                                        <input type="tel" id="cfPhone" name="phone" class="contact-input<?= $invalid('phone') ?>" value="<?= $field('phone') ?>" maxlength="20" autocomplete="tel" inputmode="tel" required>
-                                        <small class="contact-error" data-error-for="phone"><?= contact_e($err['phone'] ?? '') ?></small>
+                                        <input type="tel" id="cfPhone" name="phone" class="contact-input" maxlength="20" autocomplete="tel" inputmode="tel" required>
+                                        <small class="contact-error" data-error-for="phone"></small>
                                     </div>
                                 </div>
 
                                 <div class="row gx-3">
                                     <div class="contact-field col-12 col-sm-6">
                                         <label for="cfEmail">Email Address <span>*</span></label>
-                                        <input type="email" id="cfEmail" name="email" class="contact-input<?= $invalid('email') ?>" value="<?= $field('email') ?>" maxlength="120" autocomplete="email" required>
-                                        <small class="contact-error" data-error-for="email"><?= contact_e($err['email'] ?? '') ?></small>
+                                        <input type="email" id="cfEmail" name="email" class="contact-input" maxlength="120" autocomplete="email" required>
+                                        <small class="contact-error" data-error-for="email"></small>
                                     </div>
                                     <div class="contact-field col-12 col-sm-6">
                                         <label for="cfSubject">Subject <span>*</span></label>
-                                        <input type="text" id="cfSubject" name="subject" class="contact-input<?= $invalid('subject') ?>" value="<?= $field('subject') ?>" maxlength="120" required>
-                                        <small class="contact-error" data-error-for="subject"><?= contact_e($err['subject'] ?? '') ?></small>
+                                        <input type="text" id="cfSubject" name="subject" class="contact-input" maxlength="120" required>
+                                        <small class="contact-error" data-error-for="subject"></small>
                                     </div>
                                 </div>
 
                                 <div class="contact-field">
                                     <label for="cfMessage">Message <span>*</span></label>
-                                    <textarea id="cfMessage" name="message" class="contact-input<?= $invalid('message') ?>" rows="5" maxlength="2000" required><?= $field('message') ?></textarea>
-                                    <small class="contact-error" data-error-for="message"><?= contact_e($err['message'] ?? '') ?></small>
+                                    <textarea id="cfMessage" name="message" class="contact-input" rows="5" maxlength="2000" required></textarea>
+                                    <small class="contact-error" data-error-for="message"></small>
                                 </div>
 
                                 <button type="submit" class="about-btn contact-submit" id="contactSubmit"><i class="fi fi-rs-paper-plane"></i> Send Message</button>
@@ -186,6 +173,12 @@ $invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid'
         </button>
     </div>
 
+    <?php
+    $modalId = 'contactSuccessModal';
+    $modalTitle = 'Request Submitted!';
+    $modalText = 'You have submitted your request. Our team will get back to you shortly.';
+    include 'components/success-modal.php';
+    ?>
     <?php include 'components/scripts.php'; ?>
 </body>
 </html>

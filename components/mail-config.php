@@ -14,8 +14,9 @@
 //   <?php return ['smtp' => ['host' => 'smtp.gmail.com', 'username' => 'you@gmail.com', 'password' => 'app-password']];
 
 $config = [
-    'recipient'  => 'praveennandipati@gmail.com',
-    'from_email' => '',                          // empty = SMTP username, else no-reply@<your domain>
+    'recipient'  => 'info@mastersurgeon.in',      // Contact Us form (contact-mail.php)
+    'consultation_recipient' => 'info@mastersurgeon.in',   // home page free-consultation form (consultation-mail.php)
+    'from_email' => 'info@mastersurgeon.in',     // must be an address on your domain; empty = SMTP username
     'from_name'  => 'Master Surgeon Website',
     'smtp' => [
         'host'     => '',                        // e.g. smtp.gmail.com

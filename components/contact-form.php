@@ -135,7 +135,11 @@ function contact_send_mail(string $recipient, string $subject, string $body, $re
         $headers[] = 'Reply-To: ' . mb_encode_mimeheader((string) $replyName, 'UTF-8', 'B', "\r\n") . ' <' . $replyEmail . '>';
     }
 
-    $sent = @mail($recipient, mb_encode_mimeheader($subject, 'UTF-8', 'B', "\r\n"), $body, implode("\r\n", $headers));
+    // -f sets the envelope sender; many shared hosts (cPanel/Exim) drop mail without it.
+    $sent = @mail($recipient, mb_encode_mimeheader($subject, 'UTF-8', 'B', "\r\n"), $body, implode("\r\n", $headers), '-f' . $from);
+    if (!$sent) {
+        $sent = @mail($recipient, mb_encode_mimeheader($subject, 'UTF-8', 'B', "\r\n"), $body, implode("\r\n", $headers));
+    }
     if (!$sent) {
         error_log('Contact form: mail() failed. Set the SMTP details in components/mail-config.php.');
     }

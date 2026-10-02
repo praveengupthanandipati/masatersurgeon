@@ -697,6 +697,26 @@ document.addEventListener('DOMContentLoaded', function () {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
 
+// Reads a mail endpoint reply (contact-mail.php / consultation-mail.php) as JSON.
+// Some hosts print warnings or other text before the JSON; the JSON object is pulled out of it.
+function readMailReply(res) {
+  return res.text().then(function (text) {
+    try {
+      return JSON.parse(text);
+    } catch (err) {
+      var start = text.lastIndexOf('{"status"');
+      if (start !== -1) {
+        try {
+          console.warn(res.url + ' printed extra output before its JSON reply:', text.slice(0, start));
+          return JSON.parse(text.slice(start));
+        } catch (err2) { /* fall through */ }
+      }
+      console.error(res.url + ' returned HTTP ' + res.status + ' (not JSON):', text);
+      return { status: 'error', message: 'Server error (' + res.status + '). Please call us or message us on WhatsApp.' };
+    }
+  });
+}
+
 // Contact form: client-side validation + AJAX submit (the server re-validates everything)
 document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('contactForm');
@@ -704,6 +724,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var alertBox = document.getElementById('contactAlert');
   var submitBtn = document.getElementById('contactSubmit');
+  var modalEl = document.getElementById('contactSuccessModal');
+  // a modal inside a transformed parent (AOS animations) can't position itself; keep it on <body>
+  if (modalEl && modalEl.parentNode !== document.body) document.body.appendChild(modalEl);
 
   var rules = {
     name: function (v) {
@@ -772,118 +795,155 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(form.action, {
       method: 'POST',
       body: new FormData(form),
-      headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' },
+      credentials: 'same-origin'
     })
-      .then(function (res) { return res.json(); })
+      .then(function (res) {
+        return readMailReply(res);
+      })
       .then(function (data) {
         if (data.status === 'success') {
           form.reset();
           Object.keys(rules).forEach(function (name) { showError(name, ''); });
-        } else if (data.errors) {
+          if (modalEl && window.bootstrap && bootstrap.Modal) {
+            bootstrap.Modal.getOrCreateInstance(modalEl).show();
+          } else {
+            showAlert('success', data.message);
+          }
+          return;
+        }
+        if (data.errors) {
           Object.keys(data.errors).forEach(function (name) { showError(name, data.errors[name]); });
         }
-        showAlert(data.status === 'success' ? 'success' : 'error', data.message || 'Something went wrong. Please try again.');
+        showAlert('error', data.message || 'Something went wrong. Please try again.');
       })
-      .catch(function () {
+      .catch(function (err) {
+        console.error('Contact form request failed:', err);
         showAlert('error', 'Network error. Please check your connection and try again.');
       })
       .finally(function () { submitBtn.disabled = false; });
   });
 });
 
-// Free consultation form: client-side validation + AJAX submit (the server re-validates everything)
+// "Book FREE Consultation" forms (components/consultation-form.php): validate, AJAX submit
+// to consultation-mail.php, show the success popup. Works for any number of forms on a page.
 document.addEventListener('DOMContentLoaded', function () {
-  var form = document.getElementById('apptForm');
-  if (!form) return;
+  var forms = document.querySelectorAll('.js-consult-form');
+  if (!forms.length) return;
 
-  var alertBox = document.getElementById('apptAlert');
-  var submitBtn = document.getElementById('apptSubmit');
+  var modalEl = document.getElementById('consultSuccessModal');
+  // a modal inside a transformed parent (AOS animations) can't position itself; keep it on <body>
+  if (modalEl && modalEl.parentNode !== document.body) document.body.appendChild(modalEl);
 
   var rules = {
     name: function (v) {
-      if (!v) return 'Please enter the patient name.';
-      if (v.length < 2 || v.length > 80 || !/^[A-Za-zÀ-ɏऀ-෿][A-Za-zÀ-ɏऀ-෿\s.'-]*$/.test(v)) return 'Please enter a valid name (letters only, 2-80 characters).';
+      if (!v) return 'Please enter your full name.';
+      if (v.length < 2 || v.length > 80 || !/^[A-Za-zÀ-ɏऀ-෿][A-Za-zÀ-ɏऀ-෿\s.'-]*$/.test(v)) return 'Please enter a valid name (letters only).';
     },
     phone: function (v) {
-      if (!v) return 'Please enter your mobile number.';
+      if (!v) return 'Please enter your phone number.';
       var digits = v.replace(/[\s().-]/g, '').replace(/^(?:\+?91|0)(?=\d{10}$)/, '');
       if (!/^[6-9]\d{9}$/.test(digits)) return 'Please enter a valid 10 digit mobile number.';
     },
+    treatment: function (v) {
+      if (!v) return 'Please select a treatment.';
+    },
     city: function (v) {
       if (!v) return 'Please select your city.';
-    },
-    treatment: function (v) {
-      if (!v) return 'Please select a disease or treatment.';
     }
   };
 
-  function showError(name, message) {
-    var input = form.elements[name];
-    var out = form.querySelector('[data-error-for="' + name + '"]');
-    if (input) input.classList.toggle('is-invalid', !!message);
-    if (out) out.textContent = message || '';
-  }
+  Array.prototype.forEach.call(forms, function (form) {
+    var alertBox = form.querySelector('.js-consult-alert');
+    var submitBtn = form.querySelector('.js-consult-submit');
+    var submitLabel = submitBtn.textContent;
 
-  function validateField(name) {
-    var message = rules[name](form.elements[name].value.trim()) || '';
-    showError(name, message);
-    return !message;
-  }
-
-  function showAlert(type, message) {
-    alertBox.className = 'contact-alert contact-alert-' + type;
-    alertBox.textContent = message;
-    alertBox.hidden = false;
-  }
-
-  Object.keys(rules).forEach(function (name) {
-    var input = form.elements[name];
-    input.addEventListener('blur', function () { validateField(name); });
-    input.addEventListener('input', function () {
-      if (input.classList.contains('is-invalid')) validateField(name);
-    });
-    input.addEventListener('change', function () { validateField(name); });
-  });
-
-  // keep only digits and common separators in the mobile field
-  form.elements.phone.addEventListener('input', function () {
-    this.value = this.value.replace(/[^\d+\s-]/g, '');
-  });
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    alertBox.hidden = true;
-
-    var firstInvalid = null;
-    Object.keys(rules).forEach(function (name) {
-      if (!validateField(name) && !firstInvalid) firstInvalid = form.elements[name];
-    });
-    if (firstInvalid) {
-      firstInvalid.focus();
-      return;
+    function showError(name, message) {
+      var input = form.elements[name];
+      var out = form.querySelector('[data-error-for="' + name + '"]');
+      if (input) input.classList.toggle('is-invalid', !!message);
+      if (out) out.textContent = message || '';
     }
 
-    submitBtn.disabled = true;
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'X-Requested-With': 'XMLHttpRequest' }
-    })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (data.status === 'success') {
-          form.reset();
-          Object.keys(rules).forEach(function (name) { showError(name, ''); });
-        } else if (data.errors) {
-          Object.keys(data.errors).forEach(function (name) { showError(name, data.errors[name]); });
-        }
-        showAlert(data.status === 'success' ? 'success' : 'error', data.message || 'Something went wrong. Please try again.');
-        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    function validateField(name) {
+      var message = rules[name](form.elements[name].value.trim()) || '';
+      showError(name, message);
+      return !message;
+    }
+
+    function showAlert(message) {
+      alertBox.textContent = message;
+      alertBox.hidden = false;
+    }
+
+    Object.keys(rules).forEach(function (name) {
+      var input = form.elements[name];
+      input.addEventListener('blur', function () { validateField(name); });
+      input.addEventListener('input', function () {
+        if (input.classList.contains('is-invalid')) validateField(name);
+      });
+      input.addEventListener('change', function () { validateField(name); });
+    });
+
+    // name: letters, spaces, dot, apostrophe and hyphen only
+    form.elements.name.addEventListener('input', function () {
+      this.value = this.value.replace(/[^A-Za-zÀ-ɏऀ-෿\s.'-]/g, '');
+    });
+
+    // phone: digits only, max 10 (the +91 code is shown separately)
+    form.elements.phone.addEventListener('input', function () {
+      this.value = this.value.replace(/\D/g, '').slice(0, 10);
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alertBox.hidden = true;
+
+      var firstInvalid = null;
+      Object.keys(rules).forEach(function (name) {
+        if (!validateField(name) && !firstInvalid) firstInvalid = form.elements[name];
+      });
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Booking...';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' },
+        credentials: 'same-origin'
       })
-      .catch(function () {
-        showAlert('error', 'Network error. Please check your connection and try again.');
-      })
-      .finally(function () { submitBtn.disabled = false; });
+        .then(function (res) {
+          return readMailReply(res);
+        })
+        .then(function (data) {
+          if (data.status === 'success') {
+            form.reset();
+            Object.keys(rules).forEach(function (name) { showError(name, ''); });
+            if (modalEl && window.bootstrap && bootstrap.Modal) {
+              bootstrap.Modal.getOrCreateInstance(modalEl).show();
+            } else {
+              alert(data.message);
+            }
+            return;
+          }
+          if (data.errors) {
+            Object.keys(data.errors).forEach(function (name) { showError(name, data.errors[name]); });
+          }
+          showAlert(data.message || 'Something went wrong. Please try again.');
+        })
+        .catch(function (err) {
+          console.error('Consultation form request failed:', err);
+          showAlert('Network error. Please check your connection and try again.');
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitLabel;
+        });
+    });
   });
 });
 

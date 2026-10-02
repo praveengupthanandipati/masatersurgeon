@@ -779,6 +779,84 @@ a {
   background: #00291d;
 }
 
+.hero-form-control.is-invalid {
+  border-color: #aa0607;
+}
+
+.hero-form-error {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #aa0607;
+}
+.hero-form-error:empty {
+  display: none;
+}
+
+.hero-form-alert {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  background: #fdecec;
+  color: #aa0607;
+}
+
+.hero-form-submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.hero-form-card.consult-card-inline {
+  flex: none;
+  max-width: 440px;
+  margin: 0 auto;
+  border: 1px solid #e3e9f0;
+  box-shadow: 0 12px 30px rgba(0, 41, 29, 0.1);
+  -moz-box-shadow: 0 12px 30px rgba(0, 41, 29, 0.1);
+  -webkit-box-shadow: 0 12px 30px rgba(0, 41, 29, 0.1);
+  -ms-box-shadow: 0 12px 30px rgba(0, 41, 29, 0.1);
+}
+
+.consult-modal .modal-content {
+  position: relative;
+  border: none;
+  border-radius: 16px;
+  padding: 2.5rem 2rem 2rem;
+  text-align: center;
+}
+.consult-modal .consult-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.consult-modal .consult-modal-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaf6f1;
+  color: #29b99a;
+  font-size: 2.25rem;
+  line-height: 1;
+}
+.consult-modal .consult-modal-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00291d;
+  margin-bottom: 0.5rem;
+}
+.consult-modal .consult-modal-text {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+.consult-modal .consult-modal-btn {
+  min-width: 140px;
+}
+
 .hero-form-note {
   display: flex;
   align-items: center;
@@ -2254,30 +2332,6 @@ a {
   flex-direction: column;
 }
 
-.doctor-row {
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-  padding: 3.5rem 0;
-}
-.doctor-row:not(:last-child) {
-  border-bottom: 1px solid #ececec;
-}
-.doctor-row:nth-child(even) {
-  flex-direction: row-reverse;
-}
-.doctor-row:nth-child(even) .doctor-badge {
-  background: #00291d;
-}
-@media (max-width: 991.98px) {
-  .doctor-row {
-    flex-direction: column !important;
-    text-align: center;
-    gap: 2.5rem;
-    padding: 2.75rem 0;
-  }
-}
-
 .doctor-media {
   position: relative;
   flex: 0 0 36%;
@@ -2638,18 +2692,6 @@ video {
   }
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 2rem;
-  align-items: start;
-}
-@media (max-width: 991.98px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -2713,17 +2755,6 @@ video {
   font-weight: 600;
   color: #00291d;
   margin-bottom: 1.25rem;
-}
-
-.contact-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 1.25rem;
-}
-@media (max-width: 575.98px) {
-  .contact-row {
-    grid-template-columns: 1fr;
-  }
 }
 
 .contact-field {
@@ -2827,8 +2858,6 @@ textarea.contact-input {
 .appt-card {
   max-width: 1040px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
   background: #fff;
   border-radius: 28px;
   overflow: hidden;
@@ -2836,7 +2865,6 @@ textarea.contact-input {
 }
 @media (max-width: 767.98px) {
   .appt-card {
-    grid-template-columns: 1fr;
     border-radius: 22px;
   }
 }
@@ -3119,22 +3147,6 @@ textarea.contact-input {
   }
 }
 
-.appt-expect-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-}
-@media (min-width: 576px) and (max-width: 991.98px) {
-  .appt-expect-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 575.98px) {
-  .appt-expect-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .appt-expect-card {
   background: #eaf6f1;
   border-radius: 14px;
@@ -3167,19 +3179,6 @@ textarea.contact-input {
 .appt-bring .about-btn:hover, .appt-bring .about-btn:focus {
   background: #00291d;
   color: #fff;
-}
-
-.appt-bring-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-@media (max-width: 767.98px) {
-  .appt-bring-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
 }
 
 .appt-checklist {
@@ -3646,10 +3645,6 @@ textarea.contact-input {
 }
 .ss-empty[hidden] {
   display: none;
-}/*# sourceMappingURL=style.css.map */
-.appt-card.row {
-  display: flex;
-  grid-template-columns: none;
 }
 
 .row-cards > [class*=col] > * {
@@ -3687,4 +3682,4 @@ textarea.contact-input {
   .doctor-item .doctor-media {
     margin: 0 auto;
   }
-}
+}/*# sourceMappingURL=style.css.map */

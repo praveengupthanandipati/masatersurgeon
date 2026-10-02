@@ -5,24 +5,6 @@ require __DIR__ . '/components/contact-form.php';
 
 $info = $data['contact_info'];
 $appt = $data['appointment'];
-$treatments = array_map(function ($t) { return html_entity_decode($t, ENT_QUOTES | ENT_HTML5, 'UTF-8'); }, $data['treatment_options']);
-$treatments[] = 'Other / Not sure';
-
-if (empty($_SESSION['contact_csrf'])) {
-    $_SESSION['contact_csrf'] = bin2hex(random_bytes(16));
-}
-
-$form = handle_appointment_request(contact_mail_config()['recipient'], $appt['cities'], $treatments);
-
-if (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'XMLHttpRequest') {
-    header('Content-Type: application/json; charset=UTF-8');
-    echo json_encode(['status' => $form['status'], 'message' => $form['message'], 'errors' => $form['errors']]);
-    exit;
-}
-
-$old = $form['values'];
-$err = $form['errors'];
-$invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid' : ''; };
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,60 +64,7 @@ $invalid = function ($key) use ($err) { return isset($err[$key]) ? ' is-invalid'
                     </aside>
 
                     <div class="appt-right col-12 col-lg-6">
-                        <h2 class="appt-form-title">Book <span>FREE</span> Doctor Consultation</h2>
-                        <p class="appt-form-sub">Share a few details and our care coordinator will call you back.</p>
-
-                        <div id="apptAlert" class="contact-alert<?= $form['status'] ? ' contact-alert-' . $form['status'] : '' ?>" role="alert" aria-live="polite"<?= $form['status'] ? '' : ' hidden' ?>><?= contact_e($form['message']) ?></div>
-
-                        <form id="apptForm" method="post" action="book-free-appointment.php" novalidate>
-                            <input type="hidden" name="csrf_token" value="<?= contact_e($_SESSION['contact_csrf']) ?>">
-                            <div class="contact-hp" aria-hidden="true">
-                                <label for="apptWebsite">Leave this field empty</label>
-                                <input type="text" id="apptWebsite" name="website" tabindex="-1" autocomplete="off">
-                            </div>
-
-                            <div class="contact-field">
-                                <div class="appt-control">
-                                    <i class="fi fi-rs-user"></i>
-                                    <input type="text" id="apptName" name="name" class="contact-input<?= $invalid('name') ?>" placeholder="Patient Name" aria-label="Patient Name" value="<?= contact_e($old['name'] ?? '') ?>" maxlength="80" autocomplete="name" required>
-                                </div>
-                                <small class="contact-error" data-error-for="name"><?= contact_e($err['name'] ?? '') ?></small>
-                            </div>
-                            <div class="contact-field">
-                                <div class="appt-control">
-                                    <i class="fi fi-rs-smartphone"></i>
-                                    <input type="tel" id="apptPhone" name="phone" class="contact-input<?= $invalid('phone') ?>" placeholder="10 digit mobile number" aria-label="Mobile number" value="<?= contact_e($old['phone'] ?? '') ?>" maxlength="16" autocomplete="tel-national" inputmode="numeric" required>
-                                </div>
-                                <small class="contact-error" data-error-for="phone"><?= contact_e($err['phone'] ?? '') ?></small>
-                            </div>
-                            <div class="contact-field">
-                                <div class="appt-control">
-                                    <i class="fi fi-rs-marker"></i>
-                                    <select id="apptCity" name="city" class="contact-input<?= $invalid('city') ?>" aria-label="Select City" required>
-                                        <option value="">Select City</option>
-                                        <?php foreach ($appt['cities'] as $city): ?>
-                                            <option value="<?= contact_e($city) ?>"<?= ($old['city'] ?? '') === $city ? ' selected' : '' ?>><?= contact_e($city) ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <small class="contact-error" data-error-for="city"><?= contact_e($err['city'] ?? '') ?></small>
-                            </div>
-                            <div class="contact-field">
-                                <div class="appt-control">
-                                    <i class="fi fi-rs-stethoscope"></i>
-                                    <select id="apptTreatment" name="treatment" class="contact-input<?= $invalid('treatment') ?>" aria-label="Select Disease" required>
-                                        <option value="">Select Disease</option>
-                                        <?php foreach ($treatments as $treatment): ?>
-                                            <option value="<?= contact_e($treatment) ?>"<?= ($old['treatment'] ?? '') === $treatment ? ' selected' : '' ?>><?= contact_e($treatment) ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <small class="contact-error" data-error-for="treatment"><?= contact_e($err['treatment'] ?? '') ?></small>
-                            </div>
-
-                            <button type="submit" class="about-btn appt-submit" id="apptSubmit">Book Free Appointment <i class="fi fi-rs-arrow-small-right"></i></button>
-                            <p class="appt-note"><i class="fi fi-rs-lock"></i> Your data is secured. We prioritize your medical privacy.</p>
-                        </form>
+                        <?php $consultFormClass = 'consult-card-inline'; include 'components/consultation-form.php'; ?>
                     </div>
                 </div>
             </div>

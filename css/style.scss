@@ -651,6 +651,90 @@ a {
   }
 }
 
+.hero-form-control.is-invalid {
+  border-color: map-get($colors, red);
+}
+
+.hero-form-error {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: map-get($colors, red);
+
+  &:empty {
+    display: none;
+  }
+}
+
+.hero-form-alert {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  background: #fdecec;
+  color: map-get($colors, red);
+}
+
+.hero-form-submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+// consultation card placed inside a white panel (book-free-appointment.php)
+.hero-form-card.consult-card-inline {
+  flex: none;
+  max-width: 440px;
+  margin: 0 auto;
+  border: 1px solid #e3e9f0;
+  @include box-shadow(0, 12px, 30px, rgba(0, 41, 29, 0.1));
+}
+
+.consult-modal {
+  .modal-content {
+    position: relative;
+    border: none;
+    border-radius: 16px;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .consult-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .consult-modal-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: map-get($colors, lightprimary);
+    color: map-get($colors, secondary);
+    font-size: 2.25rem;
+    line-height: 1;
+  }
+
+  .consult-modal-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: map-get($colors, primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .consult-modal-text {
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  .consult-modal-btn {
+    min-width: 140px;
+  }
+}
+
 .hero-form-note {
   display: flex;
   align-items: center;

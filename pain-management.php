@@ -66,7 +66,6 @@
             </div>
         </section>
         <!--/ intro about pain management -->
-
         <!-- symptoms -->
         <section class="why-section">
             <div class="container-90">
