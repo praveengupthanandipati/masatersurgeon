@@ -778,6 +778,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // name: letters, spaces, dot, apostrophe and hyphen only
+  form.elements.name.addEventListener('input', function () {
+    this.value = this.value.replace(/[^A-Za-zÀ-ɏऀ-෿\s.'-]/g, '');
+  });
+
+  // phone: digits, leading +, spaces and dashes only
+  form.elements.phone.addEventListener('input', function () {
+    this.value = this.value.replace(/[^\d+\s-]/g, '');
+  });
+
+  var submitHtml = submitBtn.innerHTML;
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     alertBox.hidden = true;
@@ -792,6 +804,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
     fetch(form.action, {
       method: 'POST',
       body: new FormData(form),
@@ -821,7 +834,10 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Contact form request failed:', err);
         showAlert('error', 'Network error. Please check your connection and try again.');
       })
-      .finally(function () { submitBtn.disabled = false; });
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = submitHtml;
+      });
   });
 });
 
